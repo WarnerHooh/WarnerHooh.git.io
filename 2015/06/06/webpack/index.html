@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   
-    <title>Webpack 打包工具(转载) | W&#39; s</title>
+    <title>前端打包工具 Webpack | W&#39; s</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Warner Hooh">
@@ -69,7 +69,7 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2015/06/06/webpack/" title="Webpack 打包工具(转载)" itemprop="url">Webpack 打包工具(转载)</a>
+      <a href="/2015/06/06/webpack/" title="前端打包工具 Webpack" itemprop="url">前端打包工具 Webpack</a>
   </h1>
   <p class="article-author">By
     
@@ -77,7 +77,7 @@
     </p>
   <p class="article-time">
     <time datetime="2015-06-06T07:12:52.000Z" itemprop="datePublished">2015-06-06</time>
-    更新日期:<time datetime="2015-06-06T07:40:57.958Z" itemprop="dateModified">2015-06-06</time>
+    更新日期:<time datetime="2015-06-06T07:46:44.074Z" itemprop="dateModified">2015-06-06</time>
     
   </p>
 </header>
@@ -110,28 +110,27 @@
 <p>你最好在自己的项目中在通过npm安装一个本地webpack:<br><code>npm install webpack --save-dev</code></p>
 <h2 id="4-如何使用webpack_Step_by_Step">4.如何使用webpack Step by Step</h2><h3 id="Hello_World">Hello World</h3><p>先按照以下文件目录结构创建</p>
 <p><em>entry.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//随便写一行输出代码</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"It works."</span>);</span><br></pre></td></tr></table></figure></p>
-<p><em>index.html</em><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        // 在这里,我们没有直接引用entry.js,而是引用了bundule.js,原因是bundule.js</span><br><span class="line">        // 就是经过webpack编译后的js</span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>index.html</em><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        // 在这里,我们没有直接引用*entry.js*,而是引用了*bundule.js*,原因是*bundule.js*</span><br><span class="line">        // 就是经过webpack编译后的js</span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>然后在命令行中输入webpack命令<br><code>webpack ./entry.js bundle.js</code></p>
-<p>它将会编译你的entry.js文件,编译后的文件名为bundle.js<br>如果你的控制台信息输入如下内容,就说明你的第一次webpack成功了!</p>
+<p>它将会编译你的<em>entry.js</em>文件,编译后的文件名为<em>bundle.js</em><br>如果你的控制台信息输入如下内容,就说明你的第一次webpack成功了!</p>
 <figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Version:</span> webpack <span class="number">1.7</span>.2</span><br><span class="line"><span class="string">Time:</span> <span class="number">154</span>ms</span><br><span class="line">    Asset  Size  Chunks             Chunk Names</span><br><span class="line">bundle.js  <span class="number">1437</span>       <span class="number">0</span>  [emitted]  main</span><br><span class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">28</span> [rendered]</span><br><span class="line">    [<span class="number">0</span>] .<span class="regexp">/tutorials/</span>getting-started<span class="regexp">/setup-compilation/</span>entry.js <span class="number">28</span> &#123;<span class="number">0</span>&#125; [built]</span><br></pre></td></tr></table></figure>
 <h3 id="增加一个js的引用">增加一个js的引用</h3><p>然后我们在上述的文件结构基础上,<br>在与 entry.js 和 index.html 的平层目录中再添加一个新的js文件</p>
 <p><em>content.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS的模块化写法,与node.js的模块化一致</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">"It works from content.js."</span>;</span><br></pre></td></tr></table></figure></p>
 <p>然后我们修改<em> entry.js </em>文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// document.write("It works."); 去掉直接输出内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过require模块的方式加载content.js模块</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</span><br></pre></td></tr></table></figure></p>
-<p>猜猜如果运行 webpack 将要发生什么? webpack 会将 entry.js 中依赖的 content.js 模块打包成一个文件,<br>那么我们运行一下:</p>
+<p>猜猜如果运行 webpack 将要发生什么? webpack 会将 <em>entry.js</em> 中依赖的 <em>content.js</em> 模块打包成一个文件,<br>那么我们运行一下:</p>
 <p><code>webpack ./entry.js bundle.js</code></p>
 <p>刷新你的浏览器,我们可以看到页面中输入了 It works.</p>
-<h3 id="第一个Loader">第一个Loader</h3><p>我们在使用 webpack 时, 不仅仅是希望可以将js文件模块化并且打包构建, 对于web中常用的其它格式的文件也有模块化的需求, 比如css等.<br>但是 webpack 的初始化仅提供了对js文件的支持, 所以我们就需要一个 css-loader 来处理.</p>
+<h3 id="第一个Loader">第一个Loader</h3><p>我们在使用 webpack 时, 不仅仅是希望可以将js文件模块化并且打包构建, 对于web中常用的其它格式的文件也有模块化的需求, 比如css等.<br>但是 webpack 的初始化仅提供了对js文件的支持, 所以我们就需要一个 <strong>css-loader</strong> 来处理.</p>
 <p>那么首先我们先来安装这个插件,在你的工程根目录下( 常规下你的node_modules目录会直接放置在根目录下 ),运行<br><code>npm install css-loader style-loader</code></p>
 <p>来看下我们的目录结构是</p>
 <p>——entry.js<br>——content.js<br>——index.html<br>——bundle.js</p>
 <p>然后我们添加一个新的css文件</p>
 <p>——-style.css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
-<p>接下来修改 entry.js, 记得我们在 entry.js 中直接require了一个模块, 现在我们把css文件也当做一个模块来引用</p>
+<p>接下来修改 <em>entry.js</em>, 记得我们在 <em>entry.js</em> 中直接require了一个模块, 现在我们把css文件也当做一个模块来引用</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</span><br></pre></td></tr></table></figure>
 <p>最后运行</p>
 <p><code>webpack ./entry.js bundle.js</code><br>如果你看到你的页面的背景色变成了黄色,那么说明it works. webpack做了什么, 它把css与js一起打包进了模块, 而css是通过js操作内联样式插入到页面dom当中去的</p>
-<h3 id="我们需要一个配置文件">我们需要一个配置文件</h3><p>我们不想每次使用webpack时还在命令行后面缀上一大堆参数, 需要一个配置文件来保存这些参数, webpack的配置文件名就是 * webpack</p>
-<p><em>config.js</em></p>
+<h3 id="我们需要一个配置文件">我们需要一个配置文件</h3><p>我们不想每次使用webpack时还在命令行后面缀上一大堆参数, 需要一个配置文件来保存这些参数, webpack的配置文件名就是 <em>webpack.config.js</em></p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">"./entry.js"</span>, <span class="comment">//入口文件,需要打包那些文件是从现在入口文件进行分析的</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,  <span class="comment">//node内置环境变量,当前Project的根目录的路径</span></span><br><span class="line">        filename: <span class="string">"bundle.js"</span> <span class="comment">//打包后的文件, 一般页面中是引用打包后的文件 </span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">// 各种处理器的声明,这里只使用到了css处理器</span></span><br><span class="line">        <span class="comment">// 如上所见, 它的作用就是解析css文件并且和依赖它的模块打包构建成一体</span></span><br><span class="line">        <span class="comment">// 并且通过内联样式的方式嵌入到dom当中</span></span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">"style!css"</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>现在,你可以直接运行 webpack 了 (当然, 你的webpack.config.js 最好直接被放置在项目的根路径下). 至此,你已经步入了webpack的大门, 接下来我们针对一些具体的业务场景来举例如何使用webpack</p>
 <h3 id="抽离公用代码">抽离公用代码</h3><p>项目中有一个很常见的场景就是, 多个模块间实际是有很多依赖公用模块的, 比如A模块依赖 jquery 和 underscore, B模块也依赖jquery 和 underscore , 如果打包 模块A 和 模块B 时, 那么公用的 jquery 和 underscore 都会和 A,B 被打进一个文件. 由于类库的文件都比较大, 而且类库模块基本不会发生变化, 版本功能迭代更新的大多也都是业务代码, 所以直接打包在一起弊端多多, 分开管理 还可以更 合理的控制缓存, 没有必要刷新未变动的类库文件的缓存.</p>
@@ -173,7 +172,7 @@
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/06/06/webpack/" data-title="Webpack 打包工具(转载) | W&#39; s" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/06/06/webpack/" data-title="前端打包工具 Webpack | W&#39; s" data-tsina="null" class="share clearfix">
   </div>
 
 </div>
@@ -227,10 +226,6 @@
 			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
 		
 			<li><a href="/tags/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Tools-Webpack/" title="Tools Webpack">Tools Webpack<sup>0</sup></a></li>
-		
-			<li><a href="/tags/Tools-Webpack/" title="Tools, Webpack">Tools, Webpack<sup>0</sup></a></li>
 		
 			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
 		
