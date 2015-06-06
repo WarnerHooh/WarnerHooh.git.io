@@ -68,6 +68,6 @@ theme: landscape
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: github
-  responsitory: git@github.com:WarnerHooh/WarnerHooh.github.io.git
+  type: git
+  repo: git@github.com:WarnerHooh/WarnerHooh.github.io.git
   branch: master
