@@ -1,0 +1,360 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>css hack | W&#39; s</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Warner Hooh">
+    
+    <meta name="description" content="CSS Hack
+IE6中float元素双倍margin问题 解决方案: 在这个div里面加上 display:inline; 例如： &amp;lt;#div id=”imfloat”&amp;gt; 相应的css为 #IamFloat{ float:left; margin:5px;/*IE下理解为10px*/">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="W&#39; s" title="W&#39; s"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="W&#39; s">W&#39; s</a></h1>
+				<h2 class="blog-motto">Super Blade</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/06/09/css-hack/" title="css hack" itemprop="url">css hack</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Warner Hooh">Warner Hooh</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-06-09T09:43:51.000Z" itemprop="datePublished">2015-06-09</time>
+    更新日期:<time datetime="2015-06-21T12:57:40.563Z" itemprop="dateModified">2015-06-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS_Hack"><span class="toc-number">1.</span> <span class="toc-text">CSS Hack</span></a></li></ol>
+		</div>
+		
+		<h1 id="CSS_Hack">CSS Hack</h1><ol>
+<li><em>IE6</em>中float元素双倍margin问题<br> 解决方案: 在这个div里面加上 display:inline; 例如： &lt;#div id=”imfloat”&gt; 相应的css为 <code>#IamFloat{ float:left; margin:5px;/*IE下理解为10px*/ display:inline;/*IE下再理解为5px*/}</code></li>
+<li><p><em>IE</em>不支持min-属性<br> 解决方案： 如果只用宽度和高度，正常的浏览器里这两个值就不会变，如果只用min-width和min-height的话，IE下面根本等于没有设置宽度和高度。 比如要设置背景图片，这个宽度是比较重要的。要解决这个问题，可以这样：<code>#box{ width: 80px; height: 35px;}html&gt;body #box{ width: auto; height: auto; min-width: 80px; min-height: 35px;}</code></p>
+</li>
+<li><p><em>IE</em>不支持页面最小宽度min-设置<br> 解决方案： 它可以指定元素最小也不能小于某个宽度，这样就能保证排版一直正确。但IE不认得这个，而它实际上把width当做最小宽度来使。为了让这一命令在IE上也能用，可以把一个<div> 放到 <body> 标签下，然后为div指定一个类, 然后CSS这样设计：<code>#container{ min-width: 600px; width:expression(document.body.clientWidth &lt; 600? &quot;600px&quot;: &quot;auto&quot; );}</code>第一个min-width是正常的；但第2行的width使用了Javascript，这只有IE才认得，这也会让你的HTML文档不太正规。它实际上通过Javascript的判断来实现最小宽度。 </body></div></p>
+</li>
+<li><p><em>IE</em>左边浮动元素与右边元素产生3px边距问题<br> DIV浮动在IE下产生3象素的bug 左边对象浮动，右边采用外补丁的左边距来定位，右边对象内的文本会离左边有3px的间距. <code>#box{ float:left; width:800px;} #left{ float:left; width:50%;} #right{ width:50%;} *html #left{ margin-right:-3px; //这句是关键}</code> <code>&lt;div id=&quot;box&quot;&gt; &lt;div id=&quot;left&quot;&gt;&lt;/div&gt; &lt;div id=&quot;right&quot;&gt;&lt;/div&gt; &lt;/div&gt;</code></p>
+</li>
+<li><p><em>All</em>float的div闭合，清除浮动，浮动元素父级自适应高度</p>
+</li>
+</ol>
+<ul>
+<li><p>&lt;#div id=”floatA” &gt;&lt;#div id=”floatB” &gt;&lt;#div id=” NOTfloatC” &gt;这里的NOTfloatC并不希望继续平移，而是希望往下排。(其中floatA、floatB的属性已经设置为 float:left;) 原因是NOTfloatC并非float标签，必须将float标签闭合。在 &lt;#div class=”floatB”&gt; &lt;#div class=”NOTfloatC”&gt;之间加上 <code>&lt; #div class=”clear”&gt;</code>这个div一定要注意位置，而且必须与两个具有float属性的div同级，之间不能存在嵌套关系，否则会产生异常。并且将clear这种样式定义为为如下即可：<code>.clear{ clear:both;}</code></p>
+</li>
+<li><p>作为外部 wrapper 的 div 不要定死高度,为了让高度能<em>自动适应</em>，要在wrapper里面加上overflow:hidden; 当包含float的 box的时候，高度自动适应在IE下无效，这时候应该触发IE的layout私有属性(万恶的IE啊！)用<code>zoom:1;</code>可以做到，这样就达到了兼容。 例如某一个wrapper如下定义：<code>.colwrapper{ overflow:hidden; zoom:1; margin:5px auto;}</code></p>
+</li>
+<li><p>内部为浮动元素，父级wraper需要居中，但是又要自适应高度。对于排版,我们用得最多的css描述可能就是float:left.有的时候我们需要在n栏的float div后面做一个统一的背景,譬如: <code>&lt;div id=”page”&gt; &lt;div id=”left”&gt;&lt;/div&gt; &lt;div id=”center”&gt;&lt;/div&gt; &lt;div id=”right”&gt;&lt;/div&gt; &lt;/div&gt;</code>比如我们要将page的背景设置成蓝色,以达到所有三栏的背景颜色是蓝色的目的,但是我们会发现随着left center right的向下拉长,而 page居然保存高度不变,问题来了,原因在于page不是float属性,而我们的page由于要居中,不能设置成float,所以我们应该这样解决<code>&lt;div id=”page”&gt; &lt;div id=”bg” style=”float:left;width:100%”&gt; &lt;div id=”left”&gt;&lt;/div&gt; &lt;div id=”center”&gt;&lt;/div&gt; &lt;div id=”right”&gt;&lt;/div&gt; &lt;/div&gt; &lt;/div&gt;</code>再嵌入一个float left而宽度是100%的DIV解决之。<em>一个float的元素，其父级非float时，父级无法自适应高度；父级float时能只适应高度。当还需要居中时，考虑多嵌套一层wraper</em></p>
+</li>
+</ul>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/css/">css</a><a href="/tags/hack/">hack</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/CSS/">CSS</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/06/09/css-hack/" data-title="css hack | W&#39; s" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2015/06/21/React-with-Webpack/" title="React with Webpack">
+  <strong>PREVIOUS:</strong><br/>
+  <span>
+  React with Webpack</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2015/06/07/Javascript-Inheritance/"  title="Javascript Inheritance">
+ <strong>NEXT:</strong><br/> 
+ <span>Javascript Inheritance
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CSS_Hack"><span class="toc-number">1.</span> <span class="toc-text">CSS Hack</span></a></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>3</sup></a></li>
+		
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/extend/" title="extend">extend<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hack/" title="hack">hack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/inheritance/" title="inheritance">inheritance<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scope/" title="scope">scope<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Warner Hooh">Warner Hooh</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>

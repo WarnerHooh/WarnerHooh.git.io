@@ -1,0 +1,404 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>React with Webpack | W&#39; s</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Warner Hooh">
+    
+    <meta name="description" content="React with WebpackReactReact是facebook团队打造的前端js框架，现在很多人都在使用React构造自己的前端项目，可见React已经非常成熟了，而且React的生态系统也非常完善。之前在segment fault和tui cool上拜读了很多关于React的文章，有幸">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="W&#39; s" title="W&#39; s"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="W&#39; s">W&#39; s</a></h1>
+				<h2 class="blog-motto">Super Blade</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/06/21/React-with-Webpack/" title="React with Webpack" itemprop="url">React with Webpack</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Warner Hooh">Warner Hooh</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-06-21T02:38:07.000Z" itemprop="datePublished">2015-06-21</time>
+    更新日期:<time datetime="2015-06-21T12:55:27.360Z" itemprop="dateModified">2015-06-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_with_Webpack"><span class="toc-number">1.</span> <span class="toc-text">React with Webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#React"><span class="toc-number">1.1.</span> <span class="toc-text">React</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React_使前端代码模块化"><span class="toc-number">1.1.1.</span> <span class="toc-text">React 使前端代码模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_使我们改变传统的js编码思路"><span class="toc-number">1.1.2.</span> <span class="toc-text">React 使我们改变传统的js编码思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_神秘的虚拟DOM"><span class="toc-number">1.1.3.</span> <span class="toc-text">React 神秘的虚拟DOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_和_Angular"><span class="toc-number">1.1.4.</span> <span class="toc-text">React 和 Angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_之Hello_world"><span class="toc-number">1.1.5.</span> <span class="toc-text">React 之Hello world</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack"><span class="toc-number">1.2.</span> <span class="toc-text">Webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#树形结构"><span class="toc-number">1.2.1.</span> <span class="toc-text">树形结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-config-js_webpack配置文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">webpack.config.js webpack配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码片段"><span class="toc-number">1.2.3.</span> <span class="toc-text">代码片段</span></a></li></ol></li></ol></li></ol>
+		</div>
+		
+		<h1 id="React_with_Webpack">React with Webpack</h1><h2 id="React">React</h2><p>React是facebook团队打造的前端js框架，现在很多人都在使用React构造自己的前端项目，可见React已经非常成熟了，而且React的生态系统也非常完善。之前在segment fault和tui cool上拜读了很多关于React的文章，有幸能在新项目中来运用React。最开始就参照别人的demo写了一些简单的模块，懵懵懂懂也并没有理解React的优越性。在摸索了一段时间之后，发现React使用起来真是得心应手啊，自己也试着写一点对于React的总结：</p>
+<h3 id="React_使前端代码模块化">React 使前端代码模块化</h3><p>React认为一切皆模块，一段js代码是一个模块，一个css样式文件是一个模块。这样一个较复杂的项目就可以分成很多个完全独立的模块，每个同事并行开发，然后再将这些模块组装好。<br>React支持也推荐使用CommonJs规范编写代码，使用require加载一个模块，使用exports对外暴露接口。如果你写过nodejs应该对这种语法非常熟悉。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">var</span> lib = <span class="built_in">require</span>(<span class="string">'lib.js'</span>); <span class="comment">//加载对于lib模块的依赖</span></span><br><span class="line">lib.method(); <span class="comment">//然后就可以调用lib模块的方法</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//_innerFun属于内部方法，对外是不可见的</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_innerFun</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funA</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	_innerFun();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">funB</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//对外暴露的模块接口调用</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="comment">//仅暴露需要的方法，其他均视为私有属性</span></span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		methodA: funA,</span><br><span class="line">		methodB: funB</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="React_使我们改变传统的js编码思路">React 使我们改变传统的js编码思路</h3><p>我们经常吐槽js代码不好维护，别说是别人写的代码了，就连我们自己写的代码在一段时间之后也感觉读不懂了(就算写了一堆注释)！一部分原因是代码组织不够清晰，另一方面由于我们平时都需要使用jQuery操作DOM，代码中大部分逻辑都是和DOM产生了复杂的关系。而且别人要是稍微改了一下DOM结构，我们的代码逻辑可能就需要重新组织一次了。<br>React推荐不要直接操作DOM，需要将DOM与数据操作逻辑解耦合。使用jsx语法(将js代码和html代码组织在一起，内部解析机制是，遇到<code>&lt;tagName&gt;</code>就通过html语法解析，遇到<code>{expression}</code>就通过javascript语法解析)，和我们用过的模板引擎有些相似。需要注意的是：</p>
+<blockquote>
+<p>关键字冲突</p>
+</blockquote>
+<p>由于html和javascript写在一起，难免会有语法冲突。比如<em>class</em>、<em>for</em>等既是html属性又是javascript关键字。所以React将这些特殊html用特殊的关键字代替，<code>class =&gt; className</code>，<code>for =&gt; htmlFor</code>更多用法请参考React API</p>
+<blockquote>
+<p>事件绑定</p>
+</blockquote>
+<p>React事件绑定参考原始的在DOM上写事件监听的方法。比如<code>&lt;a href=&quot;#&quot; onClick={this.clickFunc}&gt;Click&lt;/a&gt;</code> 这里我们就在某个DOM上绑定了一个我们自定义的clickFunc方法。①React推荐事件代理的方式去实现事件监听，我们尽量把事件监听写在父级容器上再作分发。②在clickFunc中我们从默认的arguments中拿到的event是React包装后的事件对象，常用的事件属性都可以访问，但是如果你需要访问原始event对象可以通过event.nativeEvent得到。</p>
+<blockquote>
+<p>语法规范</p>
+</blockquote>
+<p>在jsx语法中，并不是像我们平时写html代码那么随意。①DOM属性有限制，比如我们需要在一个DOM上加上一个myAttr属性，我们想这样写<code>&lt;div myAttr=&quot;myVal&quot;&gt;&lt;/div&gt;</code>，然而通过React渲染出来的div却把myAttr丢掉了，因为React认为这不是一个合法的写法，我们可以这样写<code>&lt;div data-myAttr=&quot;myVal&quot;&gt;&lt;/div&gt;</code>，也就是说，React推荐使用<em>data-</em>作为自定义属性的规范。②标签嵌套要规范。我们平时写html代码时可能会忽略标签的嵌套规则，比如<code>&lt;p className=&quot;outerP&quot;&gt;asdasdsa&lt;p className=&quot;innerP&quot;&gt;xxxxx&lt;/p&gt;&lt;/p&gt;</code>，在P标签中嵌套了另一个P标签，这种写法被React解析出来会是怎么样的呢？<code>&lt;p class=&quot;outerP&quot;&gt;&lt;span&gt;asdasdsa&lt;/span&gt;&lt;/p&gt;  &lt;p class=&quot;innerP&quot;&gt;xxxxx&lt;/p&gt;   &lt;p&gt;&lt;/p&gt;</code>，咦，asdasdsa被包裹了一层span。但是……真是哔了个狗了，原本的嵌套关系不存在了，而且还多出了一个空的P标签是什么鬼？使用div嵌套可破之~所以我们嵌套html标签时务必注意规则，避免产生不必要的bug。</p>
+<h3 id="React_神秘的虚拟DOM">React 神秘的虚拟DOM</h3><p>为什么React这么火？因为React的虚拟DOM机制：通过state与DOM分离，并非数据一改变就会重新渲染整个DOM结构，React内部有一个复杂的diff算法，它会计算出真正需要改变的DOM元素，保留不变的DOM渲染真正改变的DOM，很大程度上提高了页面渲染效率，在PC上可能效果不够明显，这在移动端是非常有必要的！</p>
+<h3 id="React_和_Angular">React 和 Angular</h3><p>很多人把React和Angular(1.x)对比(我承认我也曾努力寻找这方面的答案)，其实他们的宗旨不一样，谈不上孰好孰坏，下面我们看一下两者的区别。</p>
+<blockquote>
+<p>Angular追求的是一种大而全的概念；React则渴望成为小而精</p>
+</blockquote>
+<p>  Angular致力于MVVM(Model - View - ViewModel)的javascript框架，Angular提供了包括$scope、路由(Route)、控制器(Controller)、服务(Service)、指令(Directive)的明确MV*开发思路(如果你使用过后端开发代码，你会发现我们现在使用javascript代码分离简直烂的一比，和JAVA的Spring MVC相比，javascript一直处于一个垃圾堆一样的环境)，Angular正是出于将垃圾分类的目的耀世而生。</p>
+<p>  其实和Angular相比React都算不上一个javascript框架，我想React仅仅是作为一种前端模块化的解决方案。要和Angular比较的话，React应该只属于Angualr的View层。React推崇模块化理念，在React中一切资源(js代码、css代码)皆模块。React支持AMD、CommonJs、ES6的模块化语法规范，相比AMD个人更偏爱CommonJS语法，因为它的语法更清晰明了。如果你写过JAVA代码，那么你对<em>import</em>一定不陌生，在JAVA代码中，class之间完全独立，如果要想引用其他class，就需要import其他class，这样代码的依赖关系一目了然。</p>
+<p>  题外话：前一段时间还在纠结该使用seajs还是requirejs对于前端代码的模块化，听说seajs理念先进，按需加载，可是打包和兼容老代码麻烦；requirejs先把模块全部加载完全，生态系统和兼容性好，但配置又太麻烦。现在使用Webpack + React或者Gulp + Browserify一切迎刃而解，简直不能太爽！</p>
+<blockquote>
+<p>Angular的双向绑定 vs React的状态机</p>
+</blockquote>
+<p>  要说Angualr1.x和React各自的看家本领，那么Angualr就是data-bind对于数据的双向绑定，React则是state状态机映射的虚拟DOM。</p>
+<p>  Angualr的ViewModel对于Model和View是双向的，也就是说可以在Model层改变ViewModel达到更改View渲染的目的，也可以再View层改变ViewModel达到更改Model的目的。这样我们不需要关心数据的同步更新，我们只需要明确在Controller、Service、Directive所操作的是同一个ViewModel。然而这样的双向绑定在Angular内部通过脏检查实现，对性能开销特别大，而且一个ViewModel只要发生改变，用于渲染整个ViewModel的View层就需要完全刷新，这对于开发手机WEB应用而且数据量比较大时是致命的！听说在Angular2.x将采用完全区别于1.x版本的机制，而且这个性能问题也会得到完美解决，让我们拭目以待！</p>
+<p>  React内部有两个比较特别的属性：props和state。props是Render时传递进来的，props应该像常量一样是不可变的。state是用于模块内部渲染使用的状态机，一旦状态机发生改变，React就会计算出新的DOM结构并渲染出来，也可以理解为state对于view的单向绑定。虽然没有Angular的双向绑定，但是React的虚拟DOM足够强大，比如一个state存放了10000条的list，我们改变了其中一条，那么页面上仅会对这一条发生改变的数据绑定DOM作出刷新，其他9999则会保持不变。这也正是我们所需要的！</p>
+<blockquote>
+<p>Angular想得更周到；React更灵活</p>
+</blockquote>
+<p>  Angualr内部提供了很多$service，而且采用依赖注入的方式调用。比如$http、$filter、$location、$compile等很方便的调用，而React除了React还是React，连ajax也没有实现。当然React会显得更灵活，模块之间的通信都要自己实现，想怎么写怎么写……一般我们采用订阅发布方式(PubSub)实现模块之间的通信。值得一提的是React的Mixins能够实现类似JAVA的面向切面编程。</p>
+<h3 id="React_之Hello_world">React 之Hello world</h3><blockquote>
+<p>首先我们需要在index.html中加入对React库的引用</p>
+</blockquote>
+<p><code>&lt;script type=&quot;text/javascript&quot; src =&quot;react.js&quot;&gt;&lt;/script&gt;</code><br><code>&lt;script type=&quot;text/javascript&quot; src =&quot;JSXTransformer.js&quot;&gt;&lt;/script&gt;</code></p>
+<blockquote>
+<p>我们在index.html中创建一个container</p>
+</blockquote>
+<p><code>&lt;div id=&quot;helloContainer&quot;&gt;&lt;/div&gt;</code></p>
+<blockquote>
+<p>编写HelloWorld模块</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//注意type是text/jsx</span></span><br><span class="line">&lt;javascript type=<span class="string">"text/jsx"</span>&gt;</span><br><span class="line"><span class="comment">//注意首字母大写</span></span><br><span class="line"><span class="keyword">var</span> HelloWorld = React.createClass(&#123;</span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> &#123;msg: <span class="string">"hello world"</span>&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> state = <span class="keyword">this</span>.state, <span class="comment">//state作为内部逻辑渲染数据模型，发生改变实时刷新DOM</span></span><br><span class="line">			props = <span class="keyword">this</span>.props; <span class="comment">//props作为外部传进来的数据，一般不可变</span></span><br><span class="line">		<span class="keyword">return</span>(</span><br><span class="line">			<span class="comment">//注意return必须返回一个根节点，也就是不能返回几个并列的兄弟节点</span></span><br><span class="line">			&lt;div className=<span class="string">"helloDiv"</span>&gt;</span><br><span class="line">				<span class="xml"><span class="tag">&lt;<span class="title">p</span>&gt;</span>&#123; state.msg &#125;<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">p</span>&gt;</span>this is props.name<span class="tag">&lt;/<span class="title">p</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">javascript</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>调用React渲染 Done!</p>
+</blockquote>
+<p>//通过标签形式渲染模块 | 选中页面中的某个DOM元素作为模块的加载容器<br><code>React.render(&lt;HelloWorld data={name: &quot;Hooh&quot;}&gt;&lt;/HelloWorld&gt;, document.getElementById(&#39;#helloContainer&#39;));</code><br>还是比Angular简单易上手，只是jsx语法可能一开始会有点不适应</p>
+<h2 id="Webpack">Webpack</h2><p>从上面的例子我们可以看到加载了<em>JSXTransformer.js</em>，这是用来解析jsx语法的，也就是我们所写的jsx代码并不能够直接被浏览器执行，需要先借助JSXTransformer解析成javascript代码供浏览器执行。一种更好的解决方案是在后端对jsx代码解析成普通的javascript代码，页面直接引用解析后的javascript代码，那么你需要借助webpack来实现了。当然，这仅仅是一个切入点。webpack的强大之处太多了，让我数数……总之开始webpack就对了。那么我们开始一个进阶的栗子:</p>
+<h3 id="树形结构">树形结构</h3><figure class="highlight haml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">-<span class="ruby">---app</span><br><span class="line"></span>	-<span class="ruby">---lib</span><br><span class="line"></span>		-<span class="ruby">---react.js</span><br><span class="line"></span>		-<span class="ruby">---jquery.js</span><br><span class="line"></span>		-<span class="ruby">---pubsub.js</span><br><span class="line"></span>	-<span class="ruby">---src</span><br><span class="line"></span>		-<span class="ruby">---css</span><br><span class="line"></span>			-<span class="ruby">---global.css</span><br><span class="line"></span>			-<span class="ruby">---msg.css</span><br><span class="line"></span>		-<span class="ruby">---img</span><br><span class="line"></span>		-<span class="ruby">---js</span><br><span class="line"></span>			-<span class="ruby">---<span class="class"><span class="keyword">module</span></span></span><br><span class="line"></span>				-<span class="ruby">---<span class="constant">MsgList</span>.jsx</span><br><span class="line"></span>				-<span class="ruby">---<span class="constant">MsgInput</span>.jsx</span><br><span class="line"></span>			-<span class="ruby">---main.jsx</span><br><span class="line"></span>			-<span class="ruby">---common.jsx</span><br><span class="line"></span>	-<span class="ruby">---build</span><br><span class="line"></span>		-<span class="ruby">---common.bundle.js</span><br><span class="line"></span>		-<span class="ruby">---main.bundle.js</span><br><span class="line"></span>	-<span class="ruby">---index.html</span></span><br></pre></td></tr></table></figure>
+<p>lib中存放了用到的库文件<br>src中存放开发环境的代码模块<br>build中存放打包输出的上线环境文件<br>index.html静态页面</p>
+<h3 id="webpack-config-js_webpack配置文件">webpack.config.js webpack配置文件</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> webpack = <span class="built_in">require</span>(<span class="string">'webpack'</span>);</span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">"path"</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	resolveLoader: &#123; root: path.join(__dirname, <span class="string">"node_modules"</span>) &#125;, <span class="comment">//指定loader路径</span></span><br><span class="line">    context: __dirname + path.sep + <span class="string">"app"</span>, <span class="comment">//指定自定义配置路径</span></span><br><span class="line">    <span class="comment">//入口文件</span></span><br><span class="line">	entry: &#123;</span><br><span class="line">		<span class="comment">//common.jsx作为公用文件</span></span><br><span class="line">		common: <span class="string">'./src/js/common.jsx'</span>,</span><br><span class="line">		<span class="comment">//main.jsx作为app入口文件</span></span><br><span class="line">		main: <span class="string">'./src/js/main.jsx'</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//打包输出文件</span></span><br><span class="line">	output: &#123;</span><br><span class="line">		<span class="comment">//打包到build文件夹下</span></span><br><span class="line">		path: path.join(__dirname, <span class="string">"build"</span>),</span><br><span class="line">		<span class="comment">//以[name].bundle.js命名</span></span><br><span class="line">		filename: <span class="string">"[name].bundle.js"</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="built_in">module</span>: &#123;</span><br><span class="line">		<span class="comment">//通过何种loader解析不同的文件</span></span><br><span class="line">		loaders: [</span><br><span class="line">			&#123; test: <span class="regexp">/\.jsx$/</span>, loader: <span class="string">'jsx-loader'</span>&#125;,</span><br><span class="line">            &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">"style-loader!css-loader"</span>&#125;,</span><br><span class="line">		]</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//一些插件</span></span><br><span class="line">	plugins: [</span><br><span class="line">		<span class="comment">//打包公共的common.bundle.js文件，以后对于这些公用文件的引用不会重复打包</span></span><br><span class="line">		<span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="string">"common"</span>, <span class="string">"./common.bundle.js"</span>),</span><br><span class="line">		<span class="comment">//压缩js文件</span></span><br><span class="line">		<span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">			compress: &#123;</span><br><span class="line">				warnings: <span class="literal">false</span></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;)</span><br><span class="line">	],</span><br><span class="line">	<span class="comment">//解析配置</span></span><br><span class="line">	resolve: &#123;</span><br><span class="line">		<span class="comment">//配置别名[其他模块对于以下文件的引用可以直接require]</span></span><br><span class="line">		alias: &#123;</span><br><span class="line">			react: __dirname + <span class="string">"/app/lib/react/react-with-addons.js"</span>,</span><br><span class="line">			pubsub: __dirname + <span class="string">"/app/lib/pubsub-js/src/pubsub.js"</span>,</span><br><span class="line">			zepto: __dirname + <span class="string">"/app/lib/zepto/zepto.js"</span></span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="代码片段">代码片段</h3><blockquote>
+<p>index.html 入口页面</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">class</span>=<span class="value">"msgContainer"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"msgList"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"msgInput"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"build/common.bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"build/main.bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>common.jsx 公共文件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在weback配置文件中配置了别名，可直接引用</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"react"</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"zepto"</span>);</span><br><span class="line"><span class="built_in">require</span>(<span class="string">"pubsub"</span>);</span><br><span class="line"><span class="comment">//未配置别名的文件通过相对路径引用</span></span><br><span class="line"><span class="built_in">require</span>(<span class="string">"../css/global.css"</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>main.jsx 入口js文件</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">"react"</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> MsgList = <span class="built_in">require</span>(<span class="string">"./components/MsgList.jsx"</span>);</span><br><span class="line"><span class="keyword">var</span> MsgInput = <span class="built_in">require</span>(<span class="string">"./components/MsgInput.jsx"</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">submit</span>(<span class="params">msg</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//<span class="doctag"><span class="keyword">TODO</span></span> Ajax submit</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="title">MsgList</span>&gt;</span><span class="tag">&lt;/<span class="title">MsgList</span>&gt;</span>, document.getElementById('msgList'));</span><br><span class="line">React.render(<span class="tag">&lt;<span class="title">MsgInput</span> <span class="attribute">data</span>=<span class="value">&#123;submit:</span> <span class="attribute">submit</span>&#125;&gt;</span><span class="tag">&lt;/<span class="title">MsgInput</span>&gt;</span>, document.getElementById('msgInput'));</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>MsgList.jsx msg列表模块</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'../../css/msg.css'</span>);</span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgLists = React.createClass(&#123;</span><br><span class="line">	displayName: <span class="string">'MsgList'</span>,</span><br><span class="line">	<span class="comment">//初始化时的state数据</span></span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span>&#123;</span><br><span class="line">			msgs : [</span><br><span class="line">				&#123;title: <span class="string">'asdasdsd'</span>, content: <span class="string">'xxxxx'</span>, author: <span class="string">'warner'</span>, date: <span class="string">'2015-06-18'</span>&#125;,</span><br><span class="line">				&#123;title: <span class="string">'asdasdsd'</span>, content: <span class="string">'xx'</span>, author: <span class="string">'warner'</span>, date: <span class="string">'2015-06-18'</span>&#125;,</span><br><span class="line">				&#123;title: <span class="string">'asdasdsd'</span>, content: <span class="string">'x'</span>, author: <span class="string">'warner'</span>, date: <span class="string">'2015-06-18'</span>&#125;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">var</span> lists = <span class="keyword">this</span>.state.msgs.map(<span class="function"><span class="keyword">function</span>(<span class="params">msg, index</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> (</span><br><span class="line">				<span class="comment">//调用map输出时推荐在每个iterator上添加key属性</span></span><br><span class="line">				&lt;li key=&#123;<span class="string">"msgli-"</span> + index&#125;&gt;</span><br><span class="line">					<span class="xml"><span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgIndex"</span>&gt;</span>&#123;index + 1&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgTitle"</span>&gt;</span>&#123;msg.title&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgContent"</span>&gt;</span>&#123;msg.content&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgAuthor"</span>&gt;</span>&#123;msg.author&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgDate"</span>&gt;</span>&#123;msg.date&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">			)</span>;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="xml"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">className</span>=<span class="value">"msgLists"</span>&gt;</span></span><br><span class="line">				&#123; lists &#125;</span><br><span class="line">			<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">		)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = MsgLists;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>MsgInput.jsx msg输入模块</p>
+</blockquote>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">'../../css/msg.css'</span>);</span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgInput = React.createClass(&#123;</span><br><span class="line">	displayName: <span class="string">'MsgInput'</span>,</span><br><span class="line">	submitHandle: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="comment">//代理click在父级元素上，判断触发事件的DOM</span></span><br><span class="line">		<span class="keyword">if</span>(e.target === <span class="keyword">this</span>.refs.submit.getDOMNode()) &#123;</span><br><span class="line">			<span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">			<span class="keyword">var</span> o = &#123;</span><br><span class="line">				<span class="comment">//通过this.refs获取模块中的DOM索引。getDOMNode()获取对应的原生DOM</span></span><br><span class="line">				title: <span class="keyword">this</span>.refs.title.getDOMNode().value,</span><br><span class="line">				author: <span class="keyword">this</span>.refs.author.getDOMNode().value,</span><br><span class="line">				content: <span class="keyword">this</span>.refs.content.getDOMNode().value,</span><br><span class="line">				date: date.getFullYear() + <span class="string">'-'</span> + (date.getMonth()+<span class="number">1</span>) + <span class="string">'-'</span> + date.getDate()</span><br><span class="line">			&#125;</span><br><span class="line">			<span class="comment">//调用props的submit方法</span></span><br><span class="line">			<span class="keyword">this</span>.props.data.submit.call(<span class="keyword">this</span>, o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="comment">//click事件方法监听</span></span><br><span class="line">			&lt;div onClick=&#123;<span class="keyword">this</span>.submitHandle&#125;&gt;</span><br><span class="line">				<span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"msgRow"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"author"</span>&gt;</span>Author<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ref</span>=<span class="value">"author"</span> <span class="attribute">id</span>=<span class="value">"author"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"msgRow"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"title"</span>&gt;</span>Title<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ref</span>=<span class="value">"title"</span> <span class="attribute">id</span>=<span class="value">"title"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"msgRow"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"content"</span>&gt;</span>Content<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">ref</span>=<span class="value">"content"</span> <span class="attribute">id</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">ref</span>=<span class="value">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = MsgInput;</span><br></pre></td></tr></table></figure>  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/react/">react</a><a href="/tags/webpack/">webpack</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/06/21/React-with-Webpack/" data-title="React with Webpack | W&#39; s" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/06/09/css-hack/"  title="css hack">
+ <strong>NEXT:</strong><br/> 
+ <span>css hack
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_with_Webpack"><span class="toc-number">1.</span> <span class="toc-text">React with Webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#React"><span class="toc-number">1.1.</span> <span class="toc-text">React</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#React_使前端代码模块化"><span class="toc-number">1.1.1.</span> <span class="toc-text">React 使前端代码模块化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_使我们改变传统的js编码思路"><span class="toc-number">1.1.2.</span> <span class="toc-text">React 使我们改变传统的js编码思路</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_神秘的虚拟DOM"><span class="toc-number">1.1.3.</span> <span class="toc-text">React 神秘的虚拟DOM</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_和_Angular"><span class="toc-number">1.1.4.</span> <span class="toc-text">React 和 Angular</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#React_之Hello_world"><span class="toc-number">1.1.5.</span> <span class="toc-text">React 之Hello world</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Webpack"><span class="toc-number">1.2.</span> <span class="toc-text">Webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#树形结构"><span class="toc-number">1.2.1.</span> <span class="toc-text">树形结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#webpack-config-js_webpack配置文件"><span class="toc-number">1.2.2.</span> <span class="toc-text">webpack.config.js webpack配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码片段"><span class="toc-number">1.2.3.</span> <span class="toc-text">代码片段</span></a></li></ol></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>3</sup></a></li>
+		
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/extend/" title="extend">extend<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hack/" title="hack">hack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/inheritance/" title="inheritance">inheritance<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scope/" title="scope">scope<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Warner Hooh">Warner Hooh</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
