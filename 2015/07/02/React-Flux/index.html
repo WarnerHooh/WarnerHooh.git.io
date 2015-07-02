@@ -1,0 +1,400 @@
+
+ <!DOCTYPE HTML>
+<html >
+<head>
+  <meta charset="UTF-8">
+  
+    <title>React Flux | W&#39; s</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
+    
+    <meta name="author" content="Warner Hooh">
+    
+    <meta name="description" content="React FluxWhat’s React Flux
+Flux is more of a pattern than a framework, and does not have any hard dependencies.
+
+简单的说Flux就是一种前端MV*解决方案(javascript不像Ja">
+    
+    
+    
+    
+    
+    <link rel="icon" href="/img/favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
+    
+    <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+
+  <body>
+    <header>
+      <div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/logo.png" alt="W&#39; s" title="W&#39; s"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="W&#39; s">W&#39; s</a></h1>
+				<h2 class="blog-motto">Super Blade</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			</a></div>
+			<nav class="animated">
+				<ul>
+					
+						<li><a href="/">Home</a></li>
+					
+						<li><a href="/archives">Archives</a></li>
+					
+					<li>
+					
+					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
+						<label>Search</label>
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="hidden" name="q" value="site:yoursite.com">
+					</form>
+					
+					</li>
+				</ul>
+			</nav>			
+</div>
+
+    </header>
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2015/07/02/React-Flux/" title="React Flux" itemprop="url">React Flux</a>
+  </h1>
+  <p class="article-author">By
+    
+      <a href="http://yoursite.com" title="Warner Hooh">Warner Hooh</a>
+    </p>
+  <p class="article-time">
+    <time datetime="2015-07-02T15:14:14.000Z" itemprop="datePublished">2015-07-02</time>
+    更新日期:<time datetime="2015-07-02T17:26:51.565Z" itemprop="dateModified">2015-07-03</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_Flux"><span class="toc-number">1.</span> <span class="toc-text">React Flux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s_React_Flux"><span class="toc-number">1.1.</span> <span class="toc-text">What’s React Flux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How_React_Flux_works"><span class="toc-number">1.2.</span> <span class="toc-text">How React Flux works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How_to_start_Flux"><span class="toc-number">1.3.</span> <span class="toc-text">How to start Flux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What_Else:_PubSub"><span class="toc-number">1.4.</span> <span class="toc-text">What Else: PubSub</span></a></li></ol></li></ol>
+		</div>
+		
+		<h1 id="React_Flux">React Flux</h1><h2 id="What’s_React_Flux">What’s React Flux</h2><blockquote>
+<p>Flux is more of a pattern than a framework, and does not have any hard dependencies.</p>
+</blockquote>
+<p>简单的说Flux就是一种前端MV*解决方案(javascript不像Java等后端代码严格独立出Model-View-Controller，一般是指Model和View层的分离)。然而，React声称传统的MVC模式实际上存在很大的弊端，并且不利于大型项目管理，所以FB大牛发明了一种号称优于MVC模式的解决方案 —— Flux。</p>
+<p>关于FB给出的官方解释，众说纷纭，各位看官可以仔细琢磨一番。以下是Flux的流程图：<br>![Flux data flow] (<a href="https://github.com/facebook/flux/raw/master/docs/img/flux-diagram-white-background.png" target="_blank" rel="external">https://github.com/facebook/flux/raw/master/docs/img/flux-diagram-white-background.png</a>)</p>
+<h2 id="How_React_Flux_works">How React Flux works</h2><p>在React Flux中有三个重要的概念：<em>Dispatcher</em>、<em>Stores</em>、<em>Views</em>。</p>
+<ul>
+<li><p>Dispatcher 分发中心。Dispatcher是Flux的中枢，管理着所有数据流动作。它本质上是Store的回调函数，每个Store管理着自己的数据模型，同时通过Dispatcher注册了一个回调函数，当Dispatcher响应Action时将会挂载Action的数据并发送给对应的Store处理。</p>
+</li>
+<li><p>Stores 数据处理中心。每个独立的模块应该独立出一个Store，Store就是每个模块数据的存储、加工的地方。Store中定义一个供监听数据改变的事件供React最外层模块监听并作出响应(setState)。同时每个Store挂载了对Dispatcher的分发规则(通过actionType匹配)</p>
+</li>
+<li><p>Acions 行为动作管理。Action即管理用户的动作并交给Dispatcher分发出去，分发时挂载动作触发时的数据。</p>
+</li>
+<li><p>Views React视图模块。View就是React的component模块，通过state变化达到更新视图模板的作用。在Flux中，底层的component都通过上一层的props通信，最外层component通过监听Store中定义的事件动态刷新传入子component的data数据。要在子component上监听事件，将数据封装好后调用Action处理。</p>
+</li>
+</ul>
+<h2 id="How_to_start_Flux">How to start Flux</h2><p>你可以查看<a href="https://github.com/facebook/flux/tree/master/examples/flux-todomvc" target="_blank" rel="external">官方example</a>。在看完官方给出的TODO Example后，自己撸了一个简单的Msg Demo，可能更容易理解一点。下面给出代码片段和说明:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">目录结构：</span><br><span class="line">+ flux-msg</span><br><span class="line">	+ dist</span><br><span class="line">		- bundle.js</span><br><span class="line">	+ node-modules</span><br><span class="line">	+ src</span><br><span class="line">		+ actions</span><br><span class="line">			- AppAction.js</span><br><span class="line">		+ components</span><br><span class="line">			- MsgInput.jsx</span><br><span class="line">			- MsgList.jsx</span><br><span class="line">			- MsgMain.jsx</span><br><span class="line">		+ constants</span><br><span class="line">			- AppConstant.js</span><br><span class="line">		+ dispatcher</span><br><span class="line">			- AppDispatcher.js</span><br><span class="line">		+ stores</span><br><span class="line">			- AppStore.js</span><br><span class="line">		- app.js</span><br><span class="line">	- Gulpfile.js</span><br><span class="line">	- index.html</span><br><span class="line">	- package.json</span><br></pre></td></tr></table></figure>
+<ul>
+<li>首先我们看下需要用到的npm包<em>package.json</em><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">"name"</span>: <span class="string">"flux-msg"</span>,</span><br><span class="line">  <span class="string">"version"</span>: <span class="string">"0.0.0"</span>,</span><br><span class="line">  <span class="string">"private"</span>: <span class="literal">true</span>,</span><br><span class="line">  <span class="string">"devDependencies"</span>: &#123;</span><br><span class="line">    <span class="string">"babel-jest"</span>: <span class="string">"^5.2.0"</span>,</span><br><span class="line">    <span class="string">"browserify"</span>: <span class="string">"^9.0.3"</span>,</span><br><span class="line">    <span class="string">"del"</span>: <span class="string">"^1.1.1"</span>,</span><br><span class="line">    <span class="string">"gulp"</span>: <span class="string">"^3.8.11"</span>,</span><br><span class="line">    <span class="string">"gulp-babel"</span>: <span class="string">"^5.1.0"</span>,</span><br><span class="line">    <span class="string">"gulp-replace"</span>: <span class="string">"^0.5.3"</span>,</span><br><span class="line">    <span class="string">"jest-cli"</span>: <span class="string">"^0.4.3"</span>,</span><br><span class="line">    <span class="string">"run-sequence"</span>: <span class="string">"^1.0.2"</span>,</span><br><span class="line">    <span class="string">"vinyl-source-stream"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"flux"</span>: <span class="string">"^2.0.1"</span>,</span><br><span class="line">    <span class="string">"keymirror"</span>: <span class="string">"~0.1.0"</span>,</span><br><span class="line">    <span class="string">"object-assign"</span>: <span class="string">"^1.0.0"</span>,</span><br><span class="line">    <span class="string">"react"</span>: <span class="string">"^0.12.0"</span>,</span><br><span class="line">    <span class="string">"envify"</span>: <span class="string">"^3.0.0"</span>,</span><br><span class="line">    <span class="string">"reactify"</span>: <span class="string">"^0.15.2"</span>,</span><br><span class="line">    <span class="string">"uglify-js"</span>: <span class="string">"~2.4.15"</span>,</span><br><span class="line">    <span class="string">"watchify"</span>: <span class="string">"^2.1.1"</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>其中有几个包简单介绍一下，因为在官方TODO中有用到，对于没用过这些包的我来说有些疑惑，路要一步一步走，把不懂的先弄懂了再开始下一步。<br><a href="https://github.com/STRML/keyMirror" target="_blank" rel="external">keymirror</a>是一个构造常量(更像enum)对象的工具。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> keymirror = <span class="built_in">require</span>(<span class="string">'keymirror'</span>);</span><br><span class="line">keymirror(&#123;</span><br><span class="line">	KEY1: <span class="literal">null</span>,</span><br><span class="line">	KEY2: <span class="literal">null</span>,</span><br><span class="line">	KEY3: <span class="literal">null</span></span><br><span class="line">&#125;)</span><br><span class="line">==&gt; &#123;KEY1: <span class="string">"KEY1"</span>, KEY2: <span class="string">"KEY2"</span>, KEY3: <span class="string">"KEY3"</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://github.com/sindresorhus/object-assign" target="_blank" rel="external">object-assign</a>是一个扩展对象的工具，类似$.extend()。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> objectAssign = <span class="built_in">require</span>(<span class="string">'object-assign'</span>);</span><br><span class="line"></span><br><span class="line">objectAssign(&#123;foo: <span class="number">0</span>&#125;, &#123;bar: <span class="number">1</span>&#125;);</span><br><span class="line">==&gt; &#123;foo: <span class="number">0</span>, bar: <span class="number">1</span>&#125;</span><br><span class="line"></span><br><span class="line">objectAssign(&#123;foo: <span class="number">0</span>&#125;, &#123;bar: <span class="number">1</span>&#125;, &#123;baz: <span class="number">2</span>&#125;);</span><br><span class="line">==&gt; &#123;foo: <span class="number">0</span>, bar: <span class="number">1</span>, baz: <span class="number">2</span>&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="">envents</a>是Nodejs中的内置模块，通过browserify可以在浏览器中使用。它是实现自定义事件和自定义触发事件的工具。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> util = <span class="built_in">require</span>(<span class="string">'util'</span>);</span><br><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">MyEvent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	EventEmitter.call(<span class="keyword">this</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">util.inherits(MyEvent, EventEmitter);</span><br><span class="line"></span><br><span class="line">MyEvent.prototype.hello = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'hello function'</span>);</span><br><span class="line">	<span class="keyword">this</span>.emit(<span class="string">'test'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> me = <span class="keyword">new</span> MyEvent();</span><br><span class="line"></span><br><span class="line">me.on(<span class="string">'test'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'test event: '</span> + data);</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line">me.hello(<span class="string">'xxo'</span>);</span><br><span class="line"><span class="comment">//==&gt; hello function</span></span><br><span class="line"><span class="comment">//==&gt; test event: xxo</span></span><br></pre></td></tr></table></figure></p>
+<ul>
+<li><p>Gulpfile.js<br>这里只是粗略的写了一个gulp脚本</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="keyword">var</span> browserify = <span class="built_in">require</span>(<span class="string">'browserify'</span>);</span><br><span class="line"><span class="keyword">var</span> reactify = <span class="built_in">require</span>(<span class="string">'reactify'</span>);</span><br><span class="line"><span class="keyword">var</span> source = <span class="built_in">require</span>(<span class="string">'vinyl-source-stream'</span>);</span><br><span class="line">gulp.task(<span class="string">'build'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> browserify(&#123;entries: [<span class="string">'./src/app.jsx'</span>]&#125;)</span><br><span class="line">			.transform(<span class="string">'reactify'</span>)</span><br><span class="line">			.bundle()</span><br><span class="line">			.pipe(source(<span class="string">'bundle.js'</span>))</span><br><span class="line">			.pipe(gulp.dest(<span class="string">'./dist'</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>AppDispatcher.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//直接引用flux</span></span><br><span class="line"><span class="keyword">var</span> Dispatcher = <span class="built_in">require</span>(<span class="string">'flux'</span>).Dispatcher;</span><br><span class="line"><span class="built_in">module</span>.exports = <span class="keyword">new</span> Dispatcher();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>AppConstant.js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//常量方便维护</span></span><br><span class="line"><span class="keyword">var</span> keyMirror = <span class="built_in">require</span>(<span class="string">'keyMirror'</span>);</span><br><span class="line"><span class="built_in">module</span>.exports = keyMirror(&#123;</span><br><span class="line">	ADD: <span class="literal">null</span>,</span><br><span class="line">	DELETE: <span class="literal">null</span>,</span><br><span class="line">	UPDATE: <span class="literal">null</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>AppStore.js<br>该文件中主要功能:①提供对Msg数据的增删改查方法②定义MsgStore，提供对change事件的监听方法和手动触发③将Action方法通过Store的回调函数注册</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> AppDispatcher = <span class="built_in">require</span>(<span class="string">"../dispatcher/AppDispatcher"</span>);</span><br><span class="line"><span class="keyword">var</span> AppConstant = <span class="built_in">require</span>(<span class="string">"../constants/AppConstant"</span>);</span><br><span class="line"><span class="keyword">var</span> EventEmitter = <span class="built_in">require</span>(<span class="string">'events'</span>).EventEmitter;</span><br><span class="line"><span class="keyword">var</span> assign = <span class="built_in">require</span>(<span class="string">'object-assign'</span>);</span><br><span class="line"><span class="keyword">var</span> CHANGE = <span class="string">'change'</span>;</span><br><span class="line"><span class="comment">//actually msg model</span></span><br><span class="line"><span class="keyword">var</span> _msgs = [];</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsgs</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> _msgs;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//add</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">addMsg</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">	_msgs.push(data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//delete</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">deleMsg</span>(<span class="params">index</span>) </span>&#123;</span><br><span class="line">	_msgs.splice(index, <span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//update</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">updateMsg</span>(<span class="params">index, data</span>) </span>&#123;</span><br><span class="line">	_msgs.splice(index, <span class="number">1</span>, data);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//define MsgStore</span></span><br><span class="line"><span class="keyword">var</span> MsgStore = &#123;&#125;;</span><br><span class="line">MsgStore = assign(&#123;&#125;, EventEmitter.prototype, &#123;</span><br><span class="line">	<span class="comment">//emit change event</span></span><br><span class="line">	emitChange: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.emit(CHANGE);</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	getAll: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getMsgs();</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	addChangeListener: <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.on(CHANGE, callback)</span><br><span class="line">	&#125;,</span><br><span class="line"></span><br><span class="line">	removeChangeListener: <span class="function"><span class="keyword">function</span>(<span class="params">callback</span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.removeListener(CHANGE, callback);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line">AppDispatcher.register(<span class="function"><span class="keyword">function</span>(<span class="params">action</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">var</span> text;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">switch</span>(action.actionType) &#123;</span><br><span class="line">		<span class="keyword">case</span> AppConstant.ADD:</span><br><span class="line">			text = action.text;</span><br><span class="line">			addTodo(text);</span><br><span class="line">			MsgStore.emitChange();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">case</span> AppConstant.UPDATE:</span><br><span class="line">			text = action.text;</span><br><span class="line">			updateTodo(action.index, text);</span><br><span class="line">			MsgStore.emitChange();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">case</span> AppConstant.DELETE:</span><br><span class="line">			deleTodo(action.index);</span><br><span class="line">			MsgStore.emitChange();</span><br><span class="line">			<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">default</span>:</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = MsgStore;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>AppAction.js<br>//该文件中主要提供了针对用户的动作的响应，具体通过AppDispatcher将data挂载到Store中处理并触发change事件</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> AppDispatcher = <span class="built_in">require</span>(<span class="string">'../dispatcher/AppDispatcher'</span>);</span><br><span class="line"><span class="keyword">var</span> AppConstant = <span class="built_in">require</span>(<span class="string">'../constants/AppConstant'</span>);</span><br><span class="line"><span class="keyword">var</span> AppAction = &#123;</span><br><span class="line">	addMsg: <span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</span><br><span class="line">		Dispatcher.dispatch(&#123;</span><br><span class="line">			actionType: AppConstant.ADD,</span><br><span class="line">			text: data</span><br><span class="line">		&#125;)</span><br><span class="line">	&#125;,</span><br><span class="line">	delMsg: <span class="function"><span class="keyword">function</span>(<span class="params">index</span>) </span>&#123;</span><br><span class="line">		Dispatcher.dispatch(&#123;</span><br><span class="line">			actionType: AppConstant.DELETE,</span><br><span class="line">			index: index</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	updMsg: <span class="function"><span class="keyword">function</span>(<span class="params">index, data</span>) </span>&#123;</span><br><span class="line">		Dispatcher.dispatch(&#123;</span><br><span class="line">			actionType: AppConstant.UPDATE,</span><br><span class="line">			index: index,</span><br><span class="line">			text: data</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = AppAction;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MsgInput.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//msg输入组件</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> TodoAction = <span class="built_in">require</span>(<span class="string">'../actions/AppAction.js'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgInput = React.createClass(&#123;</span><br><span class="line">	displayName: <span class="string">'MsgInput'</span>,</span><br><span class="line">	submitHandle: <span class="function"><span class="keyword">function</span>(<span class="params">e</span>) </span>&#123;</span><br><span class="line">		<span class="comment">//代理click在父级元素上，判断触发事件的DOM</span></span><br><span class="line">		<span class="keyword">if</span>(e.target === <span class="keyword">this</span>.refs.submit.getDOMNode()) &#123;</span><br><span class="line">			<span class="keyword">var</span> date = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">			<span class="keyword">var</span> o = &#123;</span><br><span class="line">				title: <span class="keyword">this</span>.refs.title.getDOMNode().value,</span><br><span class="line">				author: <span class="keyword">this</span>.refs.author.getDOMNode().value,</span><br><span class="line">				content: <span class="keyword">this</span>.refs.content.getDOMNode().value,</span><br><span class="line">				date: date.getFullYear() + <span class="string">'-'</span> + (date.getMonth()+<span class="number">1</span>) + <span class="string">'-'</span> + date.getDate()</span><br><span class="line">			&#125;</span><br><span class="line">			</span><br><span class="line">			AppAction.addMsg(o);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="xml"><span class="tag">&lt;<span class="title">div</span> <span class="attribute">onClick</span>=<span class="value">&#123;this.submitHandle&#125;</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"msgRow"</span> <span class="attribute">data-asd</span>=<span class="value">"xxx"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"author"</span>&gt;</span>Author<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ref</span>=<span class="value">"author"</span> <span class="attribute">id</span>=<span class="value">"author"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"msgRow"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"title"</span>&gt;</span>Title<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">input</span> <span class="attribute">type</span>=<span class="value">"text"</span> <span class="attribute">ref</span>=<span class="value">"title"</span> <span class="attribute">id</span>=<span class="value">"title"</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">div</span> <span class="attribute">className</span>=<span class="value">"msgRow"</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">label</span> <span class="attribute">htmlFor</span>=<span class="value">"content"</span>&gt;</span>Content<span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">textarea</span> <span class="attribute">ref</span>=<span class="value">"content"</span> <span class="attribute">id</span>=<span class="value">"content"</span>&gt;</span><span class="tag">&lt;/<span class="title">textarea</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">button</span> <span class="attribute">ref</span>=<span class="value">"submit"</span>&gt;</span>Submit<span class="tag">&lt;/<span class="title">button</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = MsgInput;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MsgList.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//msg列表组件</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgLists = React.createClass(&#123;</span><br><span class="line">	displayName: <span class="string">'MsgList'</span>,</span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span>&#123;</span><br><span class="line">			msgs : [</span><br><span class="line">				&#123;title: <span class="string">'asdasdsd'</span>, content: <span class="string">'xxxxx'</span>, author: <span class="string">'warner'</span>, date: <span class="string">'2015-06-18'</span>&#125;,</span><br><span class="line">				&#123;title: <span class="string">'asdasdsd'</span>, content: <span class="string">'xx'</span>, author: <span class="string">'warner'</span>, date: <span class="string">'2015-06-18'</span>&#125;,</span><br><span class="line">				&#123;title: <span class="string">'asdasdsd'</span>, content: <span class="string">'x'</span>, author: <span class="string">'warner12354'</span>, date: <span class="string">'2015-06-18'</span>&#125;</span><br><span class="line">			]</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;,</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="comment">//通过父组件的props传入data数据</span></span><br><span class="line">		<span class="keyword">var</span> msgs = <span class="keyword">this</span>.props.msgs;</span><br><span class="line">		<span class="keyword">var</span> lists = msgs.map(<span class="function"><span class="keyword">function</span>(<span class="params">msg, index</span>) </span>&#123;</span><br><span class="line">			<span class="keyword">return</span> (</span><br><span class="line">				<span class="xml"><span class="tag">&lt;<span class="title">li</span> <span class="attribute">key</span>=<span class="value">&#123;"msgli-"</span> + <span class="attribute">index</span>&#125;&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgIndex"</span>&gt;</span>&#123;index + 1&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgTitle"</span>&gt;</span>&#123;msg.title&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgContent"</span>&gt;</span>&#123;msg.content&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgAuthor"</span>&gt;</span>&#123;msg.author&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">					<span class="tag">&lt;<span class="title">span</span> <span class="attribute">className</span>=<span class="value">"msgDate"</span>&gt;</span>&#123;msg.date&#125;<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">				<span class="tag">&lt;/<span class="title">li</span>&gt;</span></span><br><span class="line">			)</span>;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="xml"><span class="tag">&lt;<span class="title">ul</span> <span class="attribute">className</span>=<span class="value">"msgLists"</span>&gt;</span></span><br><span class="line">				&#123; lists &#125;</span><br><span class="line">			<span class="tag">&lt;/<span class="title">ul</span>&gt;</span></span><br><span class="line">		)</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = MsgLists;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>MsgMain.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgList = <span class="built_in">require</span>(<span class="string">'./MsgList.jsx'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgInput = <span class="built_in">require</span>(<span class="string">'./MsgInput.jsx'</span>);</span><br><span class="line"><span class="keyword">var</span> AppStore = <span class="built_in">require</span>(<span class="string">'../stores/AppStore.js'</span>);</span><br><span class="line"><span class="comment">//通过store中的getAll方法获取所有msgs数据</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getMsgs</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> &#123;</span><br><span class="line">		msgs: AppStore.getAll()</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> MsgMain = React.createClass(&#123;</span><br><span class="line">	getInitialState: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> getMsgs();</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//当组件渲染完成后监听store的change事件，触发时调用_changeFunc</span></span><br><span class="line">	componentDidMount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		AppStore.addChangeListener(<span class="keyword">this</span>._changeFunc);</span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//当组件将被卸载时取消监听store的change事件</span></span><br><span class="line">	componnetWillUnmount: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		AppStore.removeChangeListener(<span class="keyword">this</span>._changeFunc);</span><br><span class="line">	&#125;,</span><br><span class="line">	render: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">return</span> (</span><br><span class="line">			<span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span></span><br><span class="line">				//将获取的所有msgs数据对象通过props传到子组件</span><br><span class="line">				<span class="tag">&lt;<span class="title">MsgList</span> <span class="attribute">msgs</span>=<span class="value">&#123;this.state.msgs&#125;</span> /&gt;</span></span><br><span class="line">				<span class="tag">&lt;<span class="title">MsgInput</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">		)</span></span><br><span class="line">	&#125;,</span><br><span class="line">	<span class="comment">//当其他子组件click等事件触发时--&gt;调用AppAction中的对应方法--&gt;AppDispatcher挂载AppAction数据并对事件进行分发--&gt;在Appstore中找到dispatcher注册的相对应的回调函数并执行--&gt;手动触发change事件*emitChange()*--&gt;另一个子组件中通过监听的change事件回调函数*_changeFunc*，setState()更新数据流--&gt;更新传入到子组件的props属性--&gt;整个View层渲染完成</span></span><br><span class="line">	_changeFunc: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">		<span class="keyword">this</span>.setState(getMsgs());</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = MsgMain;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>app.jsx</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//调用React方法渲染组件</span></span><br><span class="line"><span class="keyword">var</span> React = <span class="built_in">require</span>(<span class="string">'react'</span>);</span><br><span class="line"><span class="keyword">var</span> MsgMain = <span class="built_in">require</span>(<span class="string">'./components/MsgMain.jsx'</span>);</span><br><span class="line">React.render(<span class="xml"><span class="tag">&lt;<span class="title">MsgMain</span> /&gt;</span>, document.getElementById('msg'));</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>index.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="doctype">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">html</span> <span class="attribute">lang</span>=<span class="value">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"UTF-8"</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="title">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">div</span> <span class="attribute">id</span>=<span class="value">"msg"</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"dist/bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>ok，这个简单的DEMO就完成了，在MsgInput组件中输入的数据在经过Flux处理后会更新到MsgList组件中渲染出来。这个功能很简单，主要是为了理清Flux的原理和思路。</p>
+<h2 id="What_Else:_PubSub">What Else: PubSub</h2><p>我的理解是Flux的作用就是完成子模块之间的通信，本质就是通过注册回调函数实现的，只是中间绕了几道弯，抽离出来的Action、Dispatcher、Store等都是为了让整个流程更清晰，更利于大型应用的维护。不知道个人的理解是否有误，其实在我学习Flux之前，完成过一个React的小应用，当时也存在组件之间通信的问题，当时是通过PubSub订阅发布的方式实现的，我想这两者之间应该有异曲同工之妙吧…</p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+
+  <div class="article-tags">
+  
+  <span></span> <a href="/tags/Flux/">Flux</a><a href="/tags/MVC/">MVC</a><a href="/tags/React/">React</a>
+  </div>
+
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+</div>
+
+
+
+<div class="article-share" id="share">
+
+  <div data-url="http://yoursite.com/2015/07/02/React-Flux/" data-title="React Flux | W&#39; s" data-tsina="null" class="share clearfix">
+  </div>
+
+</div>
+</footer>   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2015/06/25/Webpack-hot-tool/"  title="Webpack hot tool">
+ <strong>NEXT:</strong><br/> 
+ <span>Webpack hot tool
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#React_Flux"><span class="toc-number">1.</span> <span class="toc-text">React Flux</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#What’s_React_Flux"><span class="toc-number">1.1.</span> <span class="toc-text">What’s React Flux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How_React_Flux_works"><span class="toc-number">1.2.</span> <span class="toc-text">How React Flux works</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#How_to_start_Flux"><span class="toc-number">1.3.</span> <span class="toc-text">How to start Flux</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#What_Else:_PubSub"><span class="toc-number">1.4.</span> <span class="toc-text">What Else: PubSub</span></a></li></ol></li></ol>
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<aside class="clearfix">
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分類</p>
+		<ul>
+		
+			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
+		
+			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>4</sup></a></li>
+		
+			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  
+<div class="tagslist">
+	<p class="asidetitle">標簽</p>
+		<ul class="clearfix">
+		
+			<li><a href="/tags/Flux/" title="Flux">Flux<sup>1</sup></a></li>
+		
+			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
+		
+			<li><a href="/tags/MVC/" title="MVC">MVC<sup>1</sup></a></li>
+		
+			<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Tools/" title="Tools">Tools<sup>1</sup></a></li>
+		
+			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
+		
+			<li><a href="/tags/extend/" title="extend">extend<sup>1</sup></a></li>
+		
+			<li><a href="/tags/hack/" title="hack">hack<sup>1</sup></a></li>
+		
+			<li><a href="/tags/inheritance/" title="inheritance">inheritance<sup>1</sup></a></li>
+		
+			<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
+		
+			<li><a href="/tags/scope/" title="scope">scope<sup>1</sup></a></li>
+		
+			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
+		
+		</ul>
+</div>
+
+
+  <div class="rsspart">
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
+</div>
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<div class="social-font clearfix">
+		
+		
+		
+		
+		
+	</div>
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
+		
+		<a href="http://yoursite.com" target="_blank" title="Warner Hooh">Warner Hooh</a>
+		
+		</p>
+</div>
+</footer>
+    <script src="/js/jquery-2.1.0.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      h  = $('article h2')
+      ah = $('article h2'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  if(ah.length==0){
+    t.css('display','none');
+  }else{
+    c.click(function(){
+      ta.css('display', 'block').addClass('fadeIn');
+    });
+    o.click(function(){
+      ta.css('display', 'none');
+    });
+    $(window).scroll(function(){
+      ta.css("top",Math.max(140,320-$(this).scrollTop()));
+    });
+  };
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina');
+  var html = [
+  '<a href="#" class="overlay" id="qrcode"></a>',
+  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
+  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+  $('.article-share-qrcode').click(function(){
+    var imgSrc = $('#qrcode-pic').attr('data-src');
+    $('#qrcode-pic').attr('src', imgSrc);
+    $('#qrcode-pic').load(function(){
+        $('.qrcode strong').text(' ');
+    });
+  });
+});     
+</script>
+
+
+
+
+
+
+  </body>
+</html>
