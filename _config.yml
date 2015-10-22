@@ -3,10 +3,10 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
-subtitle:
+title: W' s
+subtitle: Super Blade
 description:
-author: John Doe
+author: Warner Hooh
 language:
 timezone:
 
@@ -68,6 +68,11 @@ theme: pacman
 
 stylus:
   compress: true
+
+# Markdown
+#markdown: redcarpet
+#redcarpet:
+#    extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
 
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
