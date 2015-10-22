@@ -1,95 +1,263 @@
-
- <!DOCTYPE HTML>
-<html >
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>Frontend pack tool -- Webpack(refers) | W&#39; s</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
-    <meta name="author" content="Warner Hooh">
-    
-    <meta name="description" content="webpack1.webpack是什么webpack是一个模块打包工具(module bundler),它可以管理模块间的依赖关系,模块可以是js,也可以是css,text等其它静态资源
+  <title>Frontend pack tool -- Webpack(refers) | W&#39; s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="webpack1.webpack是什么webpack是一个模块打包工具(module bundler),它可以管理模块间的依赖关系,模块可以是js,也可以是css,text等其它静态资源
 2.webpack的特点
 可以将依赖关系树拆分成块并且动态加载
 保证初始化的加载时间
-所有的静态资源都很容易的被">
-    
-    
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+所有的静态资源都很容易的被当做一个模块
+可以方便的引用第三方的类库作为模块
+针对每一个模块,可管理配置的api很多
+适合大型的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Frontend pack tool -- Webpack(refers)">
+<meta property="og:url" content="http://yoursite.com/2015/06/06/webpack/index.html">
+<meta property="og:site_name" content="W' s">
+<meta property="og:description" content="webpack1.webpack是什么webpack是一个模块打包工具(module bundler),它可以管理模块间的依赖关系,模块可以是js,也可以是css,text等其它静态资源
+2.webpack的特点
+可以将依赖关系树拆分成块并且动态加载
+保证初始化的加载时间
+所有的静态资源都很容易的被当做一个模块
+可以方便的引用第三方的类库作为模块
+针对每一个模块,可管理配置的api很多
+适合大型的">
+<meta property="og:updated_time" content="2015-06-06T07:51:58.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Frontend pack tool -- Webpack(refers)">
+<meta name="twitter:description" content="webpack1.webpack是什么webpack是一个模块打包工具(module bundler),它可以管理模块间的依赖关系,模块可以是js,也可以是css,text等其它静态资源
+2.webpack的特点
+可以将依赖关系树拆分成块并且动态加载
+保证初始化的加载时间
+所有的静态资源都很容易的被当做一个模块
+可以方便的引用第三方的类库作为模块
+针对每一个模块,可管理配置的api很多
+适合大型的">
+  
+    <link rel="alternative" href="/atom.xml" title="W&#39; s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
-
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="W&#39; s" title="W&#39; s"/></a>
-			</div>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
 			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="W&#39; s">W&#39; s</a></h1>
-				<h2 class="blog-motto">Super Blade</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-					<li>
-					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
 
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/06/webpack/" title="Frontend pack tool -- Webpack(refers)" itemprop="url">Frontend pack tool -- Webpack(refers)</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://yoursite.com" title="Warner Hooh">Warner Hooh</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2015-06-06T07:12:52.000Z" itemprop="datePublished">2015-06-06</time>
-    更新日期:<time datetime="2015-06-06T07:51:58.014Z" itemprop="dateModified">2015-06-06</time>
-    
-  </p>
-</header>
-	<div class="article-content">
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Warner Hooh</a></h1>
+		</hgroup>
+
 		
+		<p class="header-subtitle">Super Blade</p>
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack"><span class="toc-number">1.</span> <span class="toc-text">webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-webpack是什么"><span class="toc-number">1.1.</span> <span class="toc-text">1.webpack是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-webpack的特点"><span class="toc-number">1.2.</span> <span class="toc-text">2.webpack的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装步骤"><span class="toc-number">1.3.</span> <span class="toc-text">3.安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何使用webpack_Step_by_Step"><span class="toc-number">1.4.</span> <span class="toc-text">4.如何使用webpack Step by Step</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hello_World"><span class="toc-number">1.4.1.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加一个js的引用"><span class="toc-number">1.4.2.</span> <span class="toc-text">增加一个js的引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个Loader"><span class="toc-number">1.4.3.</span> <span class="toc-text">第一个Loader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我们需要一个配置文件"><span class="toc-number">1.4.4.</span> <span class="toc-text">我们需要一个配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽离公用代码"><span class="toc-number">1.4.5.</span> <span class="toc-text">抽离公用代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-OPTIMIZATION"><span class="toc-number">1.5.</span> <span class="toc-text">5.OPTIMIZATION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Minimize"><span class="toc-number">1.5.1.</span> <span class="toc-text">Minimize</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-自动化"><span class="toc-number">1.6.</span> <span class="toc-text">6.自动化</span></a></li></ol></li></ol>
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/extend/" style="font-size: 10px;">extend</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
 		</div>
-		
-		<h1 id="webpack">webpack</h1><h2 id="1-webpack是什么">1.webpack是什么</h2><p>webpack是一个模块打包工具(module bundler),它可以管理模块间的依赖关系,模块可以是js,也可以是css,text等其它静态资源</p>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Warner Hooh</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Warner Hooh</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Super Blade</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-webpack" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/06/webpack/" class="article-date">
+  	<time datetime="2015-06-06T07:12:52.000Z" itemprop="datePublished">2015-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Frontend pack tool -- Webpack(refers)
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Tools/">Tools</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Webpack/">Webpack</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Tools/">Tools</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="webpack">webpack</h1><h2 id="1-webpack是什么">1.webpack是什么</h2><p>webpack是一个模块打包工具(module bundler),它可以管理模块间的依赖关系,模块可以是js,也可以是css,text等其它静态资源</p>
 <h2 id="2-webpack的特点">2.webpack的特点</h2><ol>
 <li>可以将依赖关系树拆分成块并且动态加载</li>
 <li>保证初始化的加载时间</li>
@@ -109,14 +277,14 @@
 </ol>
 <p>你最好在自己的项目中在通过npm安装一个本地webpack:<br><code>npm install webpack --save-dev</code></p>
 <h2 id="4-如何使用webpack_Step_by_Step">4.如何使用webpack Step by Step</h2><h3 id="Hello_World">Hello World</h3><p>先按照以下文件目录结构创建</p>
-<p><em>entry.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//随便写一行输出代码</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"It works."</span>);</span><br></pre></td></tr></table></figure></p>
-<p><em>index.html</em><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        // 在这里,我们没有直接引用*entry.js*,而是引用了*bundule.js*,原因是*bundule.js*</span><br><span class="line">        // 就是经过webpack编译后的js</span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p><em>entry.js</em><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">//随便写一行输出代码</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="string">"It works."</span>);</span><br></pre></td></tr></table></figure></p>
+<p><em>index.html</em><br><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">html</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">head</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">meta</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">body</span>&gt;</span></span><br><span class="line">        // 在这里,我们没有直接引用*entry.js*,而是引用了*bundule.js*,原因是*bundule.js*</span><br><span class="line">        // 就是经过webpack编译后的js</span><br><span class="line">        <span class="tag">&lt;<span class="title">script</span> <span class="attribute">type</span>=<span class="value">"text/javascript"</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span> <span class="attribute">charset</span>=<span class="value">"utf-8"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">html</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>然后在命令行中输入webpack命令<br><code>webpack ./entry.js bundle.js</code></p>
 <p>它将会编译你的<em>entry.js</em>文件,编译后的文件名为<em>bundle.js</em><br>如果你的控制台信息输入如下内容,就说明你的第一次webpack成功了!</p>
-<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">Version:</span> webpack <span class="number">1.7</span>.2</span><br><span class="line"><span class="string">Time:</span> <span class="number">154</span>ms</span><br><span class="line">    Asset  Size  Chunks             Chunk Names</span><br><span class="line">bundle.js  <span class="number">1437</span>       <span class="number">0</span>  [emitted]  main</span><br><span class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">28</span> [rendered]</span><br><span class="line">    [<span class="number">0</span>] .<span class="regexp">/tutorials/</span>getting-started<span class="regexp">/setup-compilation/</span>entry.js <span class="number">28</span> &#123;<span class="number">0</span>&#125; [built]</span><br></pre></td></tr></table></figure>
+<figure class="highlight groovy"><table><tr><td class="code"><pre><span class="line"><span class="string">Version:</span> webpack <span class="number">1.7</span>.2</span><br><span class="line"><span class="string">Time:</span> <span class="number">154</span>ms</span><br><span class="line">    Asset  Size  Chunks             Chunk Names</span><br><span class="line">bundle.js  <span class="number">1437</span>       <span class="number">0</span>  [emitted]  main</span><br><span class="line">chunk    &#123;<span class="number">0</span>&#125; bundle.js (main) <span class="number">28</span> [rendered]</span><br><span class="line">    [<span class="number">0</span>] .<span class="regexp">/tutorials/</span>getting-started<span class="regexp">/setup-compilation/</span>entry.js <span class="number">28</span> &#123;<span class="number">0</span>&#125; [built]</span><br></pre></td></tr></table></figure>
 <h3 id="增加一个js的引用">增加一个js的引用</h3><p>然后我们在上述的文件结构基础上,<br>在与 entry.js 和 index.html 的平层目录中再添加一个新的js文件</p>
-<p><em>content.js</em><br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// CommonJS的模块化写法,与node.js的模块化一致</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">"It works from content.js."</span>;</span><br></pre></td></tr></table></figure></p>
-<p>然后我们修改<em> entry.js </em>文件<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// document.write("It works."); 去掉直接输出内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过require模块的方式加载content.js模块</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</span><br></pre></td></tr></table></figure></p>
+<p><em>content.js</em><br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// CommonJS的模块化写法,与node.js的模块化一致</span></span><br><span class="line"><span class="built_in">module</span>.exports = <span class="string">"It works from content.js."</span>;</span><br></pre></td></tr></table></figure></p>
+<p>然后我们修改<em> entry.js </em>文件<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// document.write("It works."); 去掉直接输出内容</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 通过require模块的方式加载content.js模块</span></span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</span><br></pre></td></tr></table></figure></p>
 <p>猜猜如果运行 webpack 将要发生什么? webpack 会将 <em>entry.js</em> 中依赖的 <em>content.js</em> 模块打包成一个文件,<br>那么我们运行一下:</p>
 <p><code>webpack ./entry.js bundle.js</code></p>
 <p>刷新你的浏览器,我们可以看到页面中输入了 It works.</p>
@@ -125,290 +293,163 @@
 <p>来看下我们的目录结构是</p>
 <p>——entry.js<br>——content.js<br>——index.html<br>——bundle.js</p>
 <p>然后我们添加一个新的css文件</p>
-<p>——-style.css<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
+<p>——-style.css<br><figure class="highlight css"><table><tr><td class="code"><pre><span class="line"><span class="tag">body</span> <span class="rules">&#123;</span><br><span class="line">    <span class="rule"><span class="attribute">background</span>:<span class="value"> yellow</span></span>;</span><br><span class="line">&#125;</span></span><br></pre></td></tr></table></figure></p>
 <p>接下来修改 <em>entry.js</em>, 记得我们在 <em>entry.js</em> 中直接require了一个模块, 现在我们把css文件也当做一个模块来引用</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">require</span>(<span class="string">"!style!css!./style.css"</span>);</span><br><span class="line"><span class="built_in">document</span>.write(<span class="built_in">require</span>(<span class="string">"./content.js"</span>));</span><br></pre></td></tr></table></figure>
 <p>最后运行</p>
 <p><code>webpack ./entry.js bundle.js</code><br>如果你看到你的页面的背景色变成了黄色,那么说明it works. webpack做了什么, 它把css与js一起打包进了模块, 而css是通过js操作内联样式插入到页面dom当中去的</p>
 <h3 id="我们需要一个配置文件">我们需要一个配置文件</h3><p>我们不想每次使用webpack时还在命令行后面缀上一大堆参数, 需要一个配置文件来保存这些参数, webpack的配置文件名就是 <em>webpack.config.js</em></p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">"./entry.js"</span>, <span class="comment">//入口文件,需要打包那些文件是从现在入口文件进行分析的</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,  <span class="comment">//node内置环境变量,当前Project的根目录的路径</span></span><br><span class="line">        filename: <span class="string">"bundle.js"</span> <span class="comment">//打包后的文件, 一般页面中是引用打包后的文件 </span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">// 各种处理器的声明,这里只使用到了css处理器</span></span><br><span class="line">        <span class="comment">// 如上所见, 它的作用就是解析css文件并且和依赖它的模块打包构建成一体</span></span><br><span class="line">        <span class="comment">// 并且通过内联样式的方式嵌入到dom当中</span></span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">"style!css"</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    entry: <span class="string">"./entry.js"</span>, <span class="comment">//入口文件,需要打包那些文件是从现在入口文件进行分析的</span></span><br><span class="line">    output: &#123;</span><br><span class="line">        path: __dirname,  <span class="comment">//node内置环境变量,当前Project的根目录的路径</span></span><br><span class="line">        filename: <span class="string">"bundle.js"</span> <span class="comment">//打包后的文件, 一般页面中是引用打包后的文件 </span></span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="built_in">module</span>: &#123;</span><br><span class="line">        <span class="comment">// 各种处理器的声明,这里只使用到了css处理器</span></span><br><span class="line">        <span class="comment">// 如上所见, 它的作用就是解析css文件并且和依赖它的模块打包构建成一体</span></span><br><span class="line">        <span class="comment">// 并且通过内联样式的方式嵌入到dom当中</span></span><br><span class="line">        loaders: [</span><br><span class="line">            &#123; test: <span class="regexp">/\.css$/</span>, loader: <span class="string">"style!css"</span> &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>现在,你可以直接运行 webpack 了 (当然, 你的webpack.config.js 最好直接被放置在项目的根路径下). 至此,你已经步入了webpack的大门, 接下来我们针对一些具体的业务场景来举例如何使用webpack</p>
 <h3 id="抽离公用代码">抽离公用代码</h3><p>项目中有一个很常见的场景就是, 多个模块间实际是有很多依赖公用模块的, 比如A模块依赖 jquery 和 underscore, B模块也依赖jquery 和 underscore , 如果打包 模块A 和 模块B 时, 那么公用的 jquery 和 underscore 都会和 A,B 被打进一个文件. 由于类库的文件都比较大, 而且类库模块基本不会发生变化, 版本功能迭代更新的大多也都是业务代码, 所以直接打包在一起弊端多多, 分开管理 还可以更 合理的控制缓存, 没有必要刷新未变动的类库文件的缓存.</p>
 <p>那么怎么才能将 jquery 和 underscore 这种类库文件单独打包进一个文件, 并且其它模块 在 <code>require(&#39;jquery&#39;)</code> 或者 <code>require(&#39;underscore&#39;)</code>时不会再重复打包呢?</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">    vendor: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">  entry: &#123;</span><br><span class="line">    app: <span class="string">"./app.js"</span>,</span><br><span class="line">    vendor: [<span class="string">"jquery"</span>, <span class="string">"underscore"</span>, ...],</span><br><span class="line">  &#125;,</span><br><span class="line">  output: &#123;</span><br><span class="line">    filename: <span class="string">"bundle.js"</span></span><br><span class="line">  &#125;,</span><br><span class="line">  plugins: [</span><br><span class="line">    <span class="keyword">new</span> webpack.optimize.CommonsChunkPlugin(<span class="comment">/* chunkName= */</span><span class="string">"vendor"</span>, <span class="comment">/* filename= */</span><span class="string">"vendor.bundle.js"</span>)</span><br><span class="line">  ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>我们分析上述的配置文件, 在entry 中我们不再像之前 直接写入一个入口js文件, 而是传入了一个对象, 对象的属性名称就是 你自由配置的包模块名称, 你的包模块可以只包含一个模块, 比如app模包块,只包含了app.js模块, 也可以是多个模块的集合, 比如vender包模块, 它将 jquery 以及 underscore 模块一起构建到其中.</p>
 <p>当然,光在 entry 中配置多个入口js 是不行的, 我们注意到在配置文件中多了一个 plugins 参数, 并且引入了一个CommonsChunkPlugin的插件, 望文生义, 它的作用就是 把某个 包模块 编译为一个 公用模块, 使用的方式就是传入包模块的名称: vender 作为第一个参数, 而被编译打包后的文件名作为第二个参数 传入Plugin即可.<br>那么现在, 你的html文件或者模板文件中引入js的代码就要相应发生变化, 要引入两个js文件</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"vendor.bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> <span class="comment">&lt;!-- 公用模块 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>   <span class="comment">&lt;!-- 业务模块 --&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"vendor.bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span> <span class="comment">&lt;!-- 公用模块 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">script</span> <span class="attribute">src</span>=<span class="value">"bundle.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="title">script</span>&gt;</span>   <span class="comment">&lt;!-- 业务模块 --&gt;</span></span><br></pre></td></tr></table></figure>
 <p><em>vendor.bundle.js</em> 就是 jquery 以及 underscore 打包在一起的文件, 而 bundle.js 就是你的 app模块, 另外说明一点的是: app模块打包后的文件里不一定只有一个模块, 相反它只是一个入口模块, 也就是它里面可能也会require其它模块, 那么在webpack打包构建会都会打入一个文件中, 再说明一点的就是: 但是它不会将 jquery 以及 underscore 重复打包进来, 因为咱们已经通过 new webpack.optimize.CommonsChunkPlugin 做了公用模块的配置(如上demo所示).</p>
 <p>上述只是针对官网给出的demo做出的翻译 并简单实现了一种业务需求的打包, 原版官网指南请参考 <a href="http://webpack.github.io/docs/tutorials/getting-started/" target="_blank" rel="external">http://webpack.github.io/docs/tutorials/getting-started/</a></p>
 <h2 id="5-OPTIMIZATION">5.OPTIMIZATION</h2><h3 id="Minimize">Minimize</h3><p>打包构建最基础的功能就是 去除缩进, 回车, 空格, 注释, 混淆简化变量函数名等等, webpack也不例外, 而使用的方式就是通过扩展插件的方式, 具体见配置文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">            compress: &#123;</span><br><span class="line">                warnings: <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    plugins: [</span><br><span class="line">        <span class="keyword">new</span> webpack.optimize.UglifyJsPlugin(&#123;</span><br><span class="line">            compress: &#123;</span><br><span class="line">                warnings: <span class="literal">false</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;)</span><br><span class="line">    ]</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p>更多Deduplication, Chunks等Opt配置请参考官网说明<br><a href="http://webpack.github.io/docs/optimization.html" target="_blank" rel="external">http://webpack.github.io/docs/optimization.html</a></p>
 <h2 id="6-自动化">6.自动化</h2><p>我们在使用webpack时候发现,每次某个js文件发生变化时, 都要重新在命令行下 执行一遍 webpack, 如果持续以这种方式开发 估计一天的代码开发下来 满脑子都是 webpack 这几个字母了, 所以我们能否寻求一个 可以自动watch 模块的变化, 并且自动 跑一遍 webpack的工具呢? 答案是肯定的, 而且肯定的背后是多种自动化的工具, 例如 grunt 和 gulp 等, grunt 流行有一段时间了,但是由于使用时要进行一堆繁琐的配置而被诟病, gulp 是继 grunt 之后流行的一个新的自动化构建工具, 而grunt的缺点被它完美的填平, 所以现在 gulp下的用户粉丝更多一些, 同样的 插件功能也很齐全. 当然, 作为我们此次的需求, 只需要一个watch 文件变化的功能即可. 首先, 我们需要安装 gulp, 具体详见官网<br><a href="https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md" target="_blank" rel="external">https://github.com/gulpjs/gulp/blob/master/docs/getting-started.md</a></p>
 <p>你要做的也很简单, 只需要<br><code>npm install --global gulp</code></p>
 <p>然后在你本地的 Project中单独安装<br><code>npm install --save-dev gulp</code></p>
 <p>光安装了 gulp 还不行, 我们需要为 gulp 扩展一个支持 webpack的包, so 接下来:<br><code>npm install --save-dev gulp-webpack-build</code></p>
 <p>接着修改的<em>gulpfile.js</em> 的配置文件</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>),</span><br><span class="line">    gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</span><br><span class="line">    webpack = <span class="built_in">require</span>(<span class="string">'gulp-webpack-build'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 你需要定制修改的地方</span></span><br><span class="line"><span class="keyword">var</span> src = <span class="string">'app'</span>,  <span class="comment">// 需要监测的文件的路径</span></span><br><span class="line">    dest = <span class="string">'built'</span>, <span class="comment">// webpack打包后发布的地址</span></span><br><span class="line">    webpackOptions = &#123;</span><br><span class="line">        debug: <span class="literal">true</span>,</span><br><span class="line">        devtool: <span class="string">'#source-map'</span>,</span><br><span class="line">        watchDelay: <span class="number">200</span></span><br><span class="line">    &#125;,</span><br><span class="line">    webpackConfig = &#123;</span><br><span class="line">        useMemoryFs: <span class="literal">true</span>,</span><br><span class="line">        progress: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    CONFIG_FILENAME = webpack.config.CONFIG_FILENAME;</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.watch(path.join(src, <span class="string">'**/*.*'</span>)).on(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (event.type === <span class="string">'changed'</span>) &#123;</span><br><span class="line">            gulp.src(event.path, &#123; base: path.resolve(src) &#125;)</span><br><span class="line">                .pipe(webpack.closest(CONFIG_FILENAME))</span><br><span class="line">                .pipe(webpack.configure(webpackConfig))</span><br><span class="line">                .pipe(webpack.overrides(webpackOptions))</span><br><span class="line">                .pipe(webpack.watch(<span class="function"><span class="keyword">function</span>(<span class="params">err, stats</span>) </span>&#123;</span><br><span class="line">                    gulp.src(<span class="keyword">this</span>.path, &#123; base: <span class="keyword">this</span>.base &#125;)</span><br><span class="line">                        .pipe(webpack.proxy(err, stats))</span><br><span class="line">                        .pipe(webpack.format(&#123;</span><br><span class="line">                            verbose: <span class="literal">true</span>,</span><br><span class="line">                            version: <span class="literal">false</span></span><br><span class="line">                        &#125;))</span><br><span class="line">                        .pipe(gulp.dest(dest));</span><br><span class="line">                &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="pi">'use strict'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> path = <span class="built_in">require</span>(<span class="string">'path'</span>),</span><br><span class="line">    gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>),</span><br><span class="line">    webpack = <span class="built_in">require</span>(<span class="string">'gulp-webpack-build'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 你需要定制修改的地方</span></span><br><span class="line"><span class="keyword">var</span> src = <span class="string">'app'</span>,  <span class="comment">// 需要监测的文件的路径</span></span><br><span class="line">    dest = <span class="string">'built'</span>, <span class="comment">// webpack打包后发布的地址</span></span><br><span class="line">    webpackOptions = &#123;</span><br><span class="line">        debug: <span class="literal">true</span>,</span><br><span class="line">        devtool: <span class="string">'#source-map'</span>,</span><br><span class="line">        watchDelay: <span class="number">200</span></span><br><span class="line">    &#125;,</span><br><span class="line">    webpackConfig = &#123;</span><br><span class="line">        useMemoryFs: <span class="literal">true</span>,</span><br><span class="line">        progress: <span class="literal">true</span></span><br><span class="line">    &#125;,</span><br><span class="line">    CONFIG_FILENAME = webpack.config.CONFIG_FILENAME;</span><br><span class="line"></span><br><span class="line">gulp.task(<span class="string">'watch'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    gulp.watch(path.join(src, <span class="string">'**/*.*'</span>)).on(<span class="string">'change'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (event.type === <span class="string">'changed'</span>) &#123;</span><br><span class="line">            gulp.src(event.path, &#123; base: path.resolve(src) &#125;)</span><br><span class="line">                .pipe(webpack.closest(CONFIG_FILENAME))</span><br><span class="line">                .pipe(webpack.configure(webpackConfig))</span><br><span class="line">                .pipe(webpack.overrides(webpackOptions))</span><br><span class="line">                .pipe(webpack.watch(<span class="function"><span class="keyword">function</span>(<span class="params">err, stats</span>) </span>&#123;</span><br><span class="line">                    gulp.src(<span class="keyword">this</span>.path, &#123; base: <span class="keyword">this</span>.base &#125;)</span><br><span class="line">                        .pipe(webpack.proxy(err, stats))</span><br><span class="line">                        .pipe(webpack.format(&#123;</span><br><span class="line">                            verbose: <span class="literal">true</span>,</span><br><span class="line">                            version: <span class="literal">false</span></span><br><span class="line">                        &#125;))</span><br><span class="line">                        .pipe(gulp.dest(dest));</span><br><span class="line">                &#125;));</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
 <p>最后, 当我们在命令行执行<br><code>gulp watch</code></p>
 <p>就发现, 每次当你 <code>ctrl + s</code> 保存一个文件后, 你的 webpack 会自动的构建一次, 而且 webpack 会优化你的构建性能和 时间开销, 保证你的开发效率.</p>
 <p>更多的webpack的高级用法请访问官网 <a href="http://webpack.github.io/" target="_blank" rel="external">http://webpack.github.io/</a></p>
-  
-	</div>
-		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Tools/">Tools</a><a href="/tags/Webpack/">Webpack</a>
+      
+    </div>
+    
   </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Tools/">Tools</a>
-</div>
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://yoursite.com/2015/06/06/webpack/" data-title="Frontend pack tool -- Webpack(refers) | W&#39; s" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2015/06/06/Javascript-Scope/" title="Javascript Scope">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Javascript Scope</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2015/06/06/webworker/"  title="HTML5 JS Thread -- Webworker">
- <strong>NEXT:</strong><br/> 
- <span>HTML5 JS Thread -- Webworker
-</span>
-</a>
-</div>
-
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/06/Javascript-Scope/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Javascript Scope
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/06/webworker/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HTML5 JS Thread -- Webworker</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
 </nav>
 
-	
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#webpack"><span class="toc-number">1.</span> <span class="toc-text">webpack</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-webpack是什么"><span class="toc-number">1.1.</span> <span class="toc-text">1.webpack是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-webpack的特点"><span class="toc-number">1.2.</span> <span class="toc-text">2.webpack的特点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-安装步骤"><span class="toc-number">1.3.</span> <span class="toc-text">3.安装步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-如何使用webpack_Step_by_Step"><span class="toc-number">1.4.</span> <span class="toc-text">4.如何使用webpack Step by Step</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Hello_World"><span class="toc-number">1.4.1.</span> <span class="toc-text">Hello World</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#增加一个js的引用"><span class="toc-number">1.4.2.</span> <span class="toc-text">增加一个js的引用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第一个Loader"><span class="toc-number">1.4.3.</span> <span class="toc-text">第一个Loader</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我们需要一个配置文件"><span class="toc-number">1.4.4.</span> <span class="toc-text">我们需要一个配置文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#抽离公用代码"><span class="toc-number">1.4.5.</span> <span class="toc-text">抽离公用代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-OPTIMIZATION"><span class="toc-number">1.5.</span> <span class="toc-text">5.OPTIMIZATION</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Minimize"><span class="toc-number">1.5.1.</span> <span class="toc-text">Minimize</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-自动化"><span class="toc-number">1.6.</span> <span class="toc-text">6.自动化</span></a></li></ol></li></ol>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
-<aside class="clearfix">
-
   
-<div class="categorieslist">
-	<p class="asidetitle">分類</p>
-		<ul>
-		
-			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
-		
-			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
-		
-			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>4</sup></a></li>
-		
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
-		</ul>
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </div>
 
 
-  
-<div class="tagslist">
-	<p class="asidetitle">標簽</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/Flux/" title="Flux">Flux<sup>1</sup></a></li>
-		
-			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
-		
-			<li><a href="/tags/MVC/" title="MVC">MVC<sup>1</sup></a></li>
-		
-			<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
-		
-			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
-		
-			<li><a href="/tags/extend/" title="extend">extend<sup>1</sup></a></li>
-		
-			<li><a href="/tags/hack/" title="hack">hack<sup>1</sup></a></li>
-		
-			<li><a href="/tags/inheritance/" title="inheritance">inheritance<sup>1</sup></a></li>
-		
-			<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
-		
-			<li><a href="/tags/scope/" title="scope">scope<sup>1</sup></a></li>
-		
-			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
-		
-		</ul>
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="webpack" data-title="Frontend pack tool -- Webpack(refers)" data-url="http://yoursite.com/2015/06/06/webpack/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
 </div>
 
 
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
-</div>
 
-</aside>
+
 </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Warner Hooh
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font clearfix">
-		
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
-		
-		<a href="http://yoursite.com" target="_blank" title="Warner Hooh">Warner Hooh</a>
-		
-		</p>
-</div>
+  </div>
 </footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-
-
-
-
-  </body>
+  </div>
+</body>
 </html>

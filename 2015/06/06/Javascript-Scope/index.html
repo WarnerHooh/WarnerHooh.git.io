@@ -1,122 +1,273 @@
-
- <!DOCTYPE HTML>
-<html >
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   
-    <title>Javascript Scope | W&#39; s</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
-    
-    <meta name="author" content="Warner Hooh">
-    
-    <meta name="description" content="Javascript Scope要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、fu">
-    
-    
-    
-    
-    
-    <link rel="icon" href="/img/favicon.ico">
-    
-    
-    <link rel="apple-touch-icon" href="/img/pacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
-    
-    <link rel="stylesheet" href="/css/style.css" type="text/css">
+  <title>Javascript Scope | W&#39; s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Javascript Scope要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Javascript Scope">
+<meta property="og:url" content="http://yoursite.com/2015/06/06/Javascript-Scope/index.html">
+<meta property="og:site_name" content="W' s">
+<meta property="og:description" content="Javascript Scope要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexica">
+<meta property="og:updated_time" content="2015-06-07T10:02:14.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Javascript Scope">
+<meta name="twitter:description" content="Javascript Scope要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexica">
+  
+    <link rel="alternative" href="/atom.xml" title="W&#39; s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
-
-  <body>
-    <header>
-      <div>
-		
-			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="W&#39; s" title="W&#39; s"/></a>
-			</div>
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
 			
-			<div id="textlogo">
-				<h1 class="site-name"><a href="/" title="W&#39; s">W&#39; s</a></h1>
-				<h2 class="blog-motto">Super Blade</h2>
-			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
-			</a></div>
-			<nav class="animated">
-				<ul>
-					
-						<li><a href="/">Home</a></li>
-					
-						<li><a href="/archives">Archives</a></li>
-					
-					<li>
-					
-					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
-						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
-						<input type="hidden" name="q" value="site:yoursite.com">
-					</form>
-					
-					</li>
-				</ul>
-			</nav>			
-</div>
+			<img lazy-src="null" class="js-avatar">
+			
+		</a>
 
-    </header>
-    <div id="container">
-      <div id="main" class="post" itemscope itemprop="blogPost">
-	<article itemprop="articleBody"> 
-		<header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/06/06/Javascript-Scope/" title="Javascript Scope" itemprop="url">Javascript Scope</a>
-  </h1>
-  <p class="article-author">By
-    
-      <a href="http://yoursite.com" title="Warner Hooh">Warner Hooh</a>
-    </p>
-  <p class="article-time">
-    <time datetime="2015-06-06T15:18:57.000Z" itemprop="datePublished">2015-06-06</time>
-    更新日期:<time datetime="2015-06-07T10:02:14.775Z" itemprop="dateModified">2015-06-07</time>
-    
-  </p>
-</header>
-	<div class="article-content">
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Warner Hooh</a></h1>
+		</hgroup>
+
 		
+		<p class="header-subtitle">Super Blade</p>
 		
-		<div id="toc" class="toc-article">
-			<strong class="toc-title">文章目錄</strong>
-		<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Javascript_Scope"><span class="toc-number">1.</span> <span class="toc-text">Javascript Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是作用域"><span class="toc-number">1.1.</span> <span class="toc-text">什么是作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是全局作用域"><span class="toc-number">1.2.</span> <span class="toc-text">什么是全局作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是局部作用域"><span class="toc-number">1.3.</span> <span class="toc-text">什么是局部作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数作用域"><span class="toc-number">1.4.</span> <span class="toc-text">函数作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#词义作用域"><span class="toc-number">1.5.</span> <span class="toc-text">词义作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域链"><span class="toc-number">1.6.</span> <span class="toc-text">作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.7.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#私有域和公共域"><span class="toc-number">1.8.</span> <span class="toc-text">私有域和公共域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Keyword_—_this"><span class="toc-number">1.9.</span> <span class="toc-text">Keyword — this</span></a></li></ol></li></ol>
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>菜单</li>
+						<li>标签</li>
+						
+						<li>友情链接</li>
+						
+						
+						<li>关于我</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="/#" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/extend/" style="font-size: 10px;">extend</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
 		</div>
-		
-		<h1 id="Javascript_Scope">Javascript Scope</h1><p>要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexical scope(词义作用域)、public/private scope(公共/私有作用域)等概念将在本文中介绍到。</p>
+	</header>				
+</div>
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Warner Hooh</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img lazy-src="null" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Warner Hooh</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">Super Blade</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="/#" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="/#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="/#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="/#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+      <div class="body-wrap"><article id="post-Javascript-Scope" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2015/06/06/Javascript-Scope/" class="article-date">
+  	<time datetime="2015-06-06T15:18:57.000Z" itemprop="datePublished">2015-06-06</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Javascript Scope
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/scope/">scope</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Javascript_Scope">Javascript Scope</h1><p>要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexical scope(词义作用域)、public/private scope(公共/私有作用域)等概念将在本文中介绍到。</p>
 <h2 id="什么是作用域">什么是作用域</h2><p>在javascript中，scope指的是你代码运行环境的上下文。Scopes可以在全局被定义，也可以在局部被定义。了解javascript的scope有助于提升javascript developer的编码能力。</p>
-<h2 id="什么是全局作用域">什么是全局作用域</h2><p>在你编写一行javascript代码之前，你当前所处的上下文环境就是Global Scope。如果此时我们申明了一个变量，那么它就是全局变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// global scope</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br></pre></td></tr></table></figure></p>
+<h2 id="什么是全局作用域">什么是全局作用域</h2><p>在你编写一行javascript代码之前，你当前所处的上下文环境就是Global Scope。如果此时我们申明了一个变量，那么它就是全局变量。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// global scope</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br></pre></td></tr></table></figure></p>
 <p>全局变量是一把双刃剑，要学会使用全局变量并要拿捏得当。你疆场会听到人们说“全局变量实在糟糕，尽量少使用全局变量！”，但是从来没有想过这是为什么。其实全局变量并不糟糕，当你需要创建Modules模块或者APIs时你就必须得使用全局变量来完成了。<br>每个人都在使用jQuery，Like this <code>jQuery(&#39;.myClass&#39;);</code><br>我们在Global Scope中使用jQuery，也可以把jQuery理解为scope的namespace命名空间。jQuery是全局对象，同时也是jQuery库中的命名空间，jQuery的所有方法都通过jQuery命名空间进行访问。</p>
-<h2 id="什么是局部作用域">什么是局部作用域</h2><p>局部作用域是指除了全局作用域以外定义的作用域，每个方法内部定义的作用域就是一个独立的局部作用域。<br>如果我在一个方法中定义了一个变量，那么这个变量就处在改方法的局部作用域中。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Scope A: Global scope out here</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B: Local scope in here</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>除非主动暴露出来，否则我们在全局作用域中是无法获取到局部作用域的。也就是说，如果我们在某个方法内部定义了一个变量，那么它只存在于该方法的局部作用域中，出了这个方法，都访问不到该局部作用域中的变量。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(name); <span class="comment">// Todd</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Uncaught ReferenceError: name is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br></pre></td></tr></table></figure></p>
+<h2 id="什么是局部作用域">什么是局部作用域</h2><p>局部作用域是指除了全局作用域以外定义的作用域，每个方法内部定义的作用域就是一个独立的局部作用域。<br>如果我在一个方法中定义了一个变量，那么这个变量就处在改方法的局部作用域中。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Scope A: Global scope out here</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B: Local scope in here</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>除非主动暴露出来，否则我们在全局作用域中是无法获取到局部作用域的。也就是说，如果我们在某个方法内部定义了一个变量，那么它只存在于该方法的局部作用域中，出了这个方法，都访问不到该局部作用域中的变量。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(name); <span class="comment">// Todd</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">// Uncaught ReferenceError: name is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(name);</span><br></pre></td></tr></table></figure></p>
 <p>上面的变量<code>name</code>存在于局部作用域中，且没有暴露在父级作用域中，因此输出了<code>undefined</code></p>
-<h2 id="函数作用域">函数作用域</h2><p>在javascript中，所有的scopes都是通过函数作用域创建。作用域不能通过<code>for</code>或者<code>while</code>等循环表达式创建，也不能通过<code>if</code>或者<code>switch</code>等条件表达式创建。一个新的函数即一个新的作用域。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Scope A</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B</span></span><br><span class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Scope C</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<h2 id="词义作用域">词义作用域</h2><p>当一个方法处于另一个方法內部时，内部的方法总是能够读取外部方法作用域中的内容，这就叫做词义作用域。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Scope A</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B</span></span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Todd'</span>; <span class="comment">// defined in Scope B</span></span><br><span class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Scope C: 'name' is accessible here!</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>你也许注意到了，在这里<code>myOtherFunction</code>只是被定义了但未调用。为了证明上面的阐述，我们来调用定义的方法并通过console输出：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br><span class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + name);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">  myOtherFunction(); <span class="comment">// call function</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Will then log out:</span></span><br><span class="line"><span class="comment">// 'Todd'</span></span><br><span class="line"><span class="comment">// 'My name is Todd'</span></span><br></pre></td></tr></table></figure></p>
-<p>词义作用域在平时很实用，当任何变量/对象/方法定义在父级作用域中时，在它的作用域链中都能够访问到：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br><span class="line"><span class="keyword">var</span> scope1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// name is available here</span></span><br><span class="line">  <span class="keyword">var</span> scope2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// name is available here too</span></span><br><span class="line">    <span class="keyword">var</span> scope3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// name is also available here!</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>最重要的是词义作用域不能反向，也就是说内部作用域内容无法在外部作用域中读取到：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// name = undefined</span></span><br><span class="line"><span class="keyword">var</span> scope1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// name = undefined</span></span><br><span class="line">  <span class="keyword">var</span> scope2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// name = undefined</span></span><br><span class="line">    <span class="keyword">var</span> scope3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> name = <span class="string">'Todd'</span>; <span class="comment">// locally scoped</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="函数作用域">函数作用域</h2><p>在javascript中，所有的scopes都是通过函数作用域创建。作用域不能通过<code>for</code>或者<code>while</code>等循环表达式创建，也不能通过<code>if</code>或者<code>switch</code>等条件表达式创建。一个新的函数即一个新的作用域。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Scope A</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B</span></span><br><span class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Scope C</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="词义作用域">词义作用域</h2><p>当一个方法处于另一个方法內部时，内部的方法总是能够读取外部方法作用域中的内容，这就叫做词义作用域。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Scope A</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B</span></span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Todd'</span>; <span class="comment">// defined in Scope B</span></span><br><span class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// Scope C: 'name' is accessible here!</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>你也许注意到了，在这里<code>myOtherFunction</code>只是被定义了但未调用。为了证明上面的阐述，我们来调用定义的方法并通过console输出：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br><span class="line">  <span class="keyword">var</span> myOtherFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'My name is '</span> + name);</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="built_in">console</span>.log(name);</span><br><span class="line">  myOtherFunction(); <span class="comment">// call function</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// Will then log out:</span></span><br><span class="line"><span class="comment">// 'Todd'</span></span><br><span class="line"><span class="comment">// 'My name is Todd'</span></span><br></pre></td></tr></table></figure></p>
+<p>词义作用域在平时很实用，当任何变量/对象/方法定义在父级作用域中时，在它的作用域链中都能够访问到：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br><span class="line"><span class="keyword">var</span> scope1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// name is available here</span></span><br><span class="line">  <span class="keyword">var</span> scope2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// name is available here too</span></span><br><span class="line">    <span class="keyword">var</span> scope3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// name is also available here!</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>最重要的是词义作用域不能反向，也就是说内部作用域内容无法在外部作用域中读取到：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// name = undefined</span></span><br><span class="line"><span class="keyword">var</span> scope1 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// name = undefined</span></span><br><span class="line">  <span class="keyword">var</span> scope2 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// name = undefined</span></span><br><span class="line">    <span class="keyword">var</span> scope3 = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">var</span> name = <span class="string">'Todd'</span>; <span class="comment">// locally scoped</span></span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <h2 id="作用域链">作用域链</h2><p>域链给一个已知的函数建立了作用域。正如我们所知的那样，每一个被定义的函数都有自己的嵌套作用域，同时，任何被定义在其他函数中的函数都有一个本地域连接着外部的函数 - 这种连接被称作链。这就是在代码中定义作用域的地方。当我们在处理一个变量的时候，JavaScript就会开始从最里层的域向外查找直到找到要找的那个变量、对象或函数。</p>
-<h2 id="闭包">闭包</h2><p>闭包和词法作用域非常相近。一个关于闭包如何工作的更好或者更实际的例子就是返回一个函数的引用。我们可以返回域中的东西，使得它们可以被其父域所用。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> text = <span class="string">'Hello, '</span> + name;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(text);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
-<p>我们此处所用的闭包使得sayHello里的域无法被公共域访问到。单是调用这个函数不会发生什么，因为它只是返回了一个函数而已：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sayHello(<span class="string">'Todd'</span>); <span class="comment">// nothing happens, no errors, just silence...</span></span><br></pre></td></tr></table></figure></p>
-<p>这个函数返回了一个函数，就是说它需要分配然后才是调用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> helloTodd = sayHello(<span class="string">'Todd'</span>);</span><br><span class="line">helloTodd(); <span class="comment">// will call the closure and log 'Hello, Todd'</span></span><br></pre></td></tr></table></figure></p>
-<p>好吧，我撒谎了，你可以调用它，或许你已经看到了像这样的函数，但是这会调用你的闭包：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sayHello2(<span class="string">'Bob'</span>)(); <span class="comment">// calls the returned function without assignment</span></span><br></pre></td></tr></table></figure></p>
-<p>AngularJS就为其 $compile 方法用了上面的技术，当前作用域作为引用传递给闭包：<br><code>$compile(template)(scope);</code><br>我们可以猜测代码或许应该像下面这样：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> $compile = <span class="function"><span class="keyword">function</span> (<span class="params">template</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// some magic stuff here</span></span><br><span class="line">  <span class="comment">// scope is out of scope, though...</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">scope</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// access to 'template' and 'scope' to do magic with too</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<h2 id="闭包">闭包</h2><p>闭包和词法作用域非常相近。一个关于闭包如何工作的更好或者更实际的例子就是返回一个函数的引用。我们可以返回域中的东西，使得它们可以被其父域所用。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> sayHello = <span class="function"><span class="keyword">function</span> (<span class="params">name</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> text = <span class="string">'Hello, '</span> + name;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(text);</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p>我们此处所用的闭包使得sayHello里的域无法被公共域访问到。单是调用这个函数不会发生什么，因为它只是返回了一个函数而已：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">sayHello(<span class="string">'Todd'</span>); <span class="comment">// nothing happens, no errors, just silence...</span></span><br></pre></td></tr></table></figure></p>
+<p>这个函数返回了一个函数，就是说它需要分配然后才是调用：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> helloTodd = sayHello(<span class="string">'Todd'</span>);</span><br><span class="line">helloTodd(); <span class="comment">// will call the closure and log 'Hello, Todd'</span></span><br></pre></td></tr></table></figure></p>
+<p>好吧，我撒谎了，你可以调用它，或许你已经看到了像这样的函数，但是这会调用你的闭包：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">sayHello2(<span class="string">'Bob'</span>)(); <span class="comment">// calls the returned function without assignment</span></span><br></pre></td></tr></table></figure></p>
+<p>AngularJS就为其 $compile 方法用了上面的技术，当前作用域作为引用传递给闭包：<br><code>$compile(template)(scope);</code><br>我们可以猜测代码或许应该像下面这样：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> $compile = <span class="function"><span class="keyword">function</span> (<span class="params">template</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// some magic stuff here</span></span><br><span class="line">  <span class="comment">// scope is out of scope, though...</span></span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">scope</span>) </span>&#123;</span><br><span class="line">    <span class="comment">// access to 'template' and 'scope' to do magic with too</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 <p>一个函数不是只有返回什么东西的时候才会称作闭包。简单地使词法作用域的外层可以访问其中的变量，这便创建了一个闭包。</p>
 <h2 id="私有域和公共域">私有域和公共域</h2><p>在许多编程语言中，你将听到关于公共域和私有域，在 JavaScript 里没有这样的东西。但是我们可以通过像闭包一样的东西来模拟公共域和私有域。</p>
-<p>我们可以通过使用 JavaScript 设计模式比如模块模式，来创建公共域和私有域。一个简单的创建私有域的途径就是把我们的函数包装进一个函数中。如我们之前学到的，函数创建作用域来使其中的东西不可被全局域访问：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// private scope inside here</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>我们可能会紧接着创建一个新的函数在我们的应用中使用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do some stuff here</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>当我们准备调用函数的时候，它不应在全局域里：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do some stuff here</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">myFunction(); <span class="comment">// Uncaught ReferenceError: myFunction is not defined</span></span><br></pre></td></tr></table></figure></p>
-<p>成功！我们就此创建了一个私有域。但是如果我像让这个函数变成公共的，要怎么做呢？有一个很好的模式（被称作模块模式）允许我们正确地处理函数作用域。这里我在全局命名空间里建立了一个包含我所有相关代码的模块：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// define module</span></span><br><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'myMethod has been called.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// call module + methods</span></span><br><span class="line">Module.myMethod();</span><br></pre></td></tr></table></figure></p>
-<p>在这里，return 的东西就是 public 方法返回的东西，它可以被全局域访问。我们的模块来关心我们的命名空间，它可以包含我们想要任意多的方法在里面：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// define module</span></span><br><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    someOtherMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// call module + methods</span></span><br><span class="line">Module.myMethod();</span><br><span class="line">Module.someOtherMethod();</span><br></pre></td></tr></table></figure></p>
-<p>那私有方法呢？这里是很多开发者做错的地方，他们把所有的函数都堆砌在全局域里以至于污染了整个全局命名空间。可工作的函数代码不一定非在全局域里才行，除非像 APIs 这种要在全局域里可以被访问的函数。这里我们来写一个没有被返回出来的函数：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    publicMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>我们可以通过使用 JavaScript 设计模式比如模块模式，来创建公共域和私有域。一个简单的创建私有域的途径就是把我们的函数包装进一个函数中。如我们之前学到的，函数创建作用域来使其中的东西不可被全局域访问：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// private scope inside here</span></span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>我们可能会紧接着创建一个新的函数在我们的应用中使用：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do some stuff here</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>当我们准备调用函数的时候，它不应在全局域里：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">// do some stuff here</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line">myFunction(); <span class="comment">// Uncaught ReferenceError: myFunction is not defined</span></span><br></pre></td></tr></table></figure></p>
+<p>成功！我们就此创建了一个私有域。但是如果我像让这个函数变成公共的，要怎么做呢？有一个很好的模式（被称作模块模式）允许我们正确地处理函数作用域。这里我在全局命名空间里建立了一个包含我所有相关代码的模块：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// define module</span></span><br><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">'myMethod has been called.'</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// call module + methods</span></span><br><span class="line">Module.myMethod();</span><br></pre></td></tr></table></figure></p>
+<p>在这里，return 的东西就是 public 方法返回的东西，它可以被全局域访问。我们的模块来关心我们的命名空间，它可以包含我们想要任意多的方法在里面：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// define module</span></span><br><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    myMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;,</span><br><span class="line">    someOtherMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// call module + methods</span></span><br><span class="line">Module.myMethod();</span><br><span class="line">Module.someOtherMethod();</span><br></pre></td></tr></table></figure></p>
+<p>那私有方法呢？这里是很多开发者做错的地方，他们把所有的函数都堆砌在全局域里以至于污染了整个全局命名空间。可工作的函数代码不一定非在全局域里才行，除非像 APIs 这种要在全局域里可以被访问的函数。这里我们来写一个没有被返回出来的函数：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    publicMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
 <p>这就意味着 publicMethod 可以被调用，但是 privateMethod 则不行，因为它被域私有了！这些私有的函数可以是任何你能想到的对象或方法。</p>
-<p>但是这里还有个有点拧巴的地儿，那就是任何在同一个域中的东西都可以访问同一域中的其他东西，就算在这儿函数被返回出去以后。也就是说，我们的公共函数可以访问私有函数，所以私有函数依然可以和全局域互动，但是不能被全局域访问。<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    publicMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// has access to 'privateMethod', we can call it:</span></span><br><span class="line">      <span class="comment">// privateMethod();</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>但是这里还有个有点拧巴的地儿，那就是任何在同一个域中的东西都可以访问同一域中的其他东西，就算在这儿函数被返回出去以后。也就是说，我们的公共函数可以访问私有函数，所以私有函数依然可以和全局域互动，但是不能被全局域访问。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    publicMethod: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// has access to 'privateMethod', we can call it:</span></span><br><span class="line">      <span class="comment">// privateMethod();</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
 <p>这种互动是充满力量同时又保证了代码安全。JavaScript中很重要的一块就是保证代码的安全，这就解释了为什么我们不能接受把所有的函数都放在公共域中，因为这样的话，他们都被暴露出来很容易受到攻击。</p>
-<p>下面有个例子，返回了一个对象，用到了 public 和 private 方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myModule = &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  myModule.publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  myModule.anotherPublicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> myModule; <span class="comment">// returns the Object with public methods</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// usage</span></span><br><span class="line">Module.publicMethod();</span><br></pre></td></tr></table></figure></p>
-<p>比较精巧的命名方式就是在私有方法名字前加下划线，这可以帮我们在视觉上区分公共的和私有的方法：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
-<p>这里我们可以借助面向对象的方式来添加对函数的引用：<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    publicMethod: publicMethod,</span><br><span class="line">    anotherPublicMethod: anotherPublicMethod</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>下面有个例子，返回了一个对象，用到了 public 和 private 方法：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> myModule = &#123;&#125;;</span><br><span class="line">  <span class="keyword">var</span> privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  myModule.publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  myModule.anotherPublicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> myModule; <span class="comment">// returns the Object with public methods</span></span><br><span class="line">&#125;)();</span><br><span class="line"></span><br><span class="line"><span class="comment">// usage</span></span><br><span class="line">Module.publicMethod();</span><br></pre></td></tr></table></figure></p>
+<p>比较精巧的命名方式就是在私有方法名字前加下划线，这可以帮我们在视觉上区分公共的和私有的方法：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<p>这里我们可以借助面向对象的方式来添加对函数的引用：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Module = (<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> _privateMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">var</span> publicMethod = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  &#125;;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    publicMethod: publicMethod,</span><br><span class="line">    anotherPublicMethod: anotherPublicMethod</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
 <h2 id="Keyword_—_this">Keyword — <strong>this</strong></h2><blockquote>
 <p>When a function of an object was called, the object will be passed into the execution context as this value</p>
 </blockquote>
@@ -125,302 +276,175 @@
 <li><p>全局范围内<br> this;<br> 当在全部范围内使用 this，它将会指向全局对象。<br> 浏览器中运行的 JavaScript 脚本，这个全局对象是 window。</p>
 </li>
 <li><p>函数调用<br> 这里 this 将会指向全局对象，即 window。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　<span class="keyword">this</span>.x = <span class="number">1</span>;</span><br><span class="line">　　alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line">test(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　<span class="keyword">this</span>.x = <span class="number">1</span>;</span><br><span class="line">　　alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line">test(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p> 为了证明this就是全局对象，我对代码做一些改变：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line">test(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">　　alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line">test(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p> 运行结果还是1。再变一下：</p>
- <figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">　<span class="keyword">this</span>.x = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(x); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight actionscript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">1</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span><span class="params">()</span></span>&#123;</span><br><span class="line">　<span class="keyword">this</span>.x = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line">test();</span><br><span class="line">alert(x); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
 <p> ES5 注意: 在严格模式下（strict mode），不存在全局变量。 这种情况下 this 将会是undefined。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>); <span class="comment">// &lt;nav&gt;</span></span><br><span class="line"><span class="keyword">var</span> toggleNav = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this = &lt;nav&gt; element</span></span><br><span class="line">&#125;;</span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>); <span class="comment">// &lt;nav&gt;</span></span><br><span class="line"><span class="keyword">var</span> toggleNav = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// this = &lt;nav&gt; element</span></span><br><span class="line">&#125;;</span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <p> 我们在某个对象添加事件监听时，事件回调函数中的this指向仍是事件监听的对象。</p>
 <p> 这里还有个问题，就算在同一个函数中，作用域也是会变，this 的值也是会变：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>); <span class="comment">// &lt;nav&gt;</span></span><br><span class="line"><span class="keyword">var</span> toggleNav = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &lt;nav&gt; element</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// [object Window]</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>); <span class="comment">// &lt;nav&gt;</span></span><br><span class="line"><span class="keyword">var</span> toggleNav = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// &lt;nav&gt; element</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="keyword">this</span>); <span class="comment">// [object Window]</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <p> 在<code>setTimeout</code>代码块中打印出来的<code>this</code>改变了，这是为什么呢？其实我们知道<code>setTimeout</code>方法的调用应该是<code>window.setTimeout</code>当然代码块中的<code>this</code>指向方法调用者，也就是<code>window</code>！</p>
 <p> 如果我们想要访问这个<code>this</code>值，有几件事我们可以让我们达到目的。可能以前你就知道了，我们可以用一个像 that 这样的变量来缓存对<code>this</code>的引用：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>); <span class="comment">// &lt;nav&gt;</span></span><br><span class="line"><span class="keyword">var</span> toggleNav = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(that); <span class="comment">// &lt;nav&gt; element</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(that); <span class="comment">// &lt;nav&gt; element</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> nav = <span class="built_in">document</span>.querySelector(<span class="string">'.nav'</span>); <span class="comment">// &lt;nav&gt;</span></span><br><span class="line"><span class="keyword">var</span> toggleNav = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">var</span> that = <span class="keyword">this</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(that); <span class="comment">// &lt;nav&gt; element</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(that); <span class="comment">// &lt;nav&gt; element</span></span><br><span class="line">  &#125;, <span class="number">1000</span>);</span><br><span class="line">&#125;;</span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>方法调用内部</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.x = <span class="number">1</span>;</span><br><span class="line">o.m = foo;</span><br><span class="line"></span><br><span class="line">o.m(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> o = &#123;&#125;;</span><br><span class="line">o.x = <span class="number">1</span>;</span><br><span class="line">o.m = foo;</span><br><span class="line"></span><br><span class="line">o.m(); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p> 这个例子中，在foo()方法内部，this 指向调用该方法的对象，也就是 o 对象，所以 <code>this.x</code> = <code>o.x</code>。</p>
 </li>
 <li><p>调用构造函数<br> 所谓构造函数，就是通过这个函数生成一个新对象（object）。这时，this就指这个新对象。</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> test();</span><br><span class="line">alert(o.x); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> test();</span><br><span class="line">alert(o.x); <span class="comment">// 1</span></span><br></pre></td></tr></table></figure>
 <p> 运行结果为1。为了表明这时this不是全局对象，我对代码做一些改变：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> test();</span><br><span class="line">alert(x); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	<span class="keyword">this</span>.x = <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o = <span class="keyword">new</span> test();</span><br><span class="line">alert(x); <span class="comment">//2</span></span><br></pre></td></tr></table></figure>
 <p> 运行结果为2，表明全局变量x的值根本没变。</p>
 </li>
 </ol>
 <ol>
 <li><p>显式的设置/改变 this<br>call()和apply()是函数对象的一个方法，它的作用是改变函数的调用对象，它的第一个参数就表示改变后的调用这个函数的对象。因此，this指的就是这第一个参数。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=&#123;&#125;;</span><br><span class="line">o.x = <span class="number">1</span>;</span><br><span class="line">o.m = test;</span><br><span class="line">o.m.apply(); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">0</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">	alert(<span class="keyword">this</span>.x);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> o=&#123;&#125;;</span><br><span class="line">o.x = <span class="number">1</span>;</span><br><span class="line">o.m = test;</span><br><span class="line">o.m.apply(); <span class="comment">//0</span></span><br></pre></td></tr></table></figure>
 <p>apply()的参数为空时，默认调用全局对象window。因此，这时的运行结果为0，证明this指的是全局对象。如果把最后一行代码修改为</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">o.m.apply(o); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">o.m.apply(o); <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
 <p>运行结果就变成了1，证明了这时this已经被显式的改变成了对象o。</p>
 <p> .bind()<br> 不同于上述方法，使用 .bind() 不会调用一个函数， 它只是在函数运行前绑定了一个值。ECMASCript5 当中才引入这个方法实在是太晚太可惜了，因为它是如此的美妙。如你所知，我们不能出传递参数给函数，就像这样：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// works</span></span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// will invoke the function immediately</span></span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav(arg1, arg2), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// works</span></span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// will invoke the function immediately</span></span><br><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav(arg1, arg2), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <p> 我们可以通过在其中创建一个新的函数来搞定它：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">nav.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  toggleNav(arg1, arg2);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">nav.addEventListener(<span class="string">'click'</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  toggleNav(arg1, arg2);</span><br><span class="line">&#125;, <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <p> 还是那个问题，这个改变了作用域的同时我们也创建了一个不需要的函数，这对性能是一种浪费如果我们在循环内部绑定事件监听器。 尽管这使得我们可以传递参数进去，似乎应该算是 .bind() 的用武之地，但是这个函数不会被执行：</p>
- <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav.bind(scope, arg1, arg2), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">nav.addEventListener(<span class="string">'click'</span>, toggleNav.bind(scope, arg1, arg2), <span class="literal">false</span>);</span><br></pre></td></tr></table></figure>
 <p> 这个函数不会执行，并且作用域可以根据需要更改，但是参数还是在等待被传入。</p>
 </li>
 </ol>
-  
-	</div>
-		<footer class="article-footer clearfix">
 
-  <div class="article-tags">
-  
-  <span></span> <a href="/tags/Javascript/">Javascript</a><a href="/tags/scope/">scope</a>
+      
+    </div>
+    
   </div>
-
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/Javascript/">Javascript</a>
-</div>
-
-
-
-<div class="article-share" id="share">
-
-  <div data-url="http://yoursite.com/2015/06/06/Javascript-Scope/" data-title="Javascript Scope | W&#39; s" data-tsina="null" class="share clearfix">
-  </div>
-
-</div>
-</footer>   	       
-	</article>
-	
-<nav class="article-nav clearfix">
- 
- <div class="prev" >
- <a href="/2015/06/07/Javascript-Inheritance/" title="Javascript Inheritance">
-  <strong>PREVIOUS:</strong><br/>
-  <span>
-  Javascript Inheritance</span>
-</a>
-</div>
-
-
-<div class="next">
-<a href="/2015/06/06/webpack/"  title="Frontend pack tool -- Webpack(refers)">
- <strong>NEXT:</strong><br/> 
- <span>Frontend pack tool -- Webpack(refers)
-</span>
-</a>
-</div>
-
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/06/07/Javascript-Inheritance/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Javascript Inheritance
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/06/06/webpack/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Frontend pack tool -- Webpack(refers)</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
 </nav>
 
-	
-</div>  
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
-
-  <div id="toc" class="toc-aside">
-  <strong class="toc-title">文章目錄</strong>
-  <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Javascript_Scope"><span class="toc-number">1.</span> <span class="toc-text">Javascript Scope</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是作用域"><span class="toc-number">1.1.</span> <span class="toc-text">什么是作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是全局作用域"><span class="toc-number">1.2.</span> <span class="toc-text">什么是全局作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#什么是局部作用域"><span class="toc-number">1.3.</span> <span class="toc-text">什么是局部作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#函数作用域"><span class="toc-number">1.4.</span> <span class="toc-text">函数作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#词义作用域"><span class="toc-number">1.5.</span> <span class="toc-text">词义作用域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#作用域链"><span class="toc-number">1.6.</span> <span class="toc-text">作用域链</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#闭包"><span class="toc-number">1.7.</span> <span class="toc-text">闭包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#私有域和公共域"><span class="toc-number">1.8.</span> <span class="toc-text">私有域和公共域</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Keyword_—_this"><span class="toc-number">1.9.</span> <span class="toc-text">Keyword — this</span></a></li></ol></li></ol>
-  </div>
-
-<div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
-<aside class="clearfix">
-
   
-<div class="categorieslist">
-	<p class="asidetitle">分類</p>
-		<ul>
-		
-			<li><a href="/categories/CSS/" title="CSS">CSS<sup>1</sup></a></li>
-		
-			<li><a href="/categories/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
-		
-			<li><a href="/categories/Javascript/" title="Javascript">Javascript<sup>4</sup></a></li>
-		
-			<li><a href="/categories/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
-		</ul>
+</article>
+
+
+<div class="share">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">分享到：</span>
+		<a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+		<a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
 </div>
 
 
-  
-<div class="tagslist">
-	<p class="asidetitle">標簽</p>
-		<ul class="clearfix">
-		
-			<li><a href="/tags/Flux/" title="Flux">Flux<sup>1</sup></a></li>
-		
-			<li><a href="/tags/HTML5/" title="HTML5">HTML5<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Javascript/" title="Javascript">Javascript<sup>2</sup></a></li>
-		
-			<li><a href="/tags/MVC/" title="MVC">MVC<sup>1</sup></a></li>
-		
-			<li><a href="/tags/React/" title="React">React<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Tools/" title="Tools">Tools<sup>1</sup></a></li>
-		
-			<li><a href="/tags/Webpack/" title="Webpack">Webpack<sup>1</sup></a></li>
-		
-			<li><a href="/tags/css/" title="css">css<sup>1</sup></a></li>
-		
-			<li><a href="/tags/extend/" title="extend">extend<sup>1</sup></a></li>
-		
-			<li><a href="/tags/hack/" title="hack">hack<sup>1</sup></a></li>
-		
-			<li><a href="/tags/inheritance/" title="inheritance">inheritance<sup>1</sup></a></li>
-		
-			<li><a href="/tags/react/" title="react">react<sup>1</sup></a></li>
-		
-			<li><a href="/tags/scope/" title="scope">scope<sup>1</sup></a></li>
-		
-			<li><a href="/tags/webpack/" title="webpack">webpack<sup>1</sup></a></li>
-		
-		</ul>
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Javascript-Scope" data-title="Javascript Scope" data-url="http://yoursite.com/2015/06/06/Javascript-Scope/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
 </div>
 
 
-  <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
-</div>
 
-</aside>
+
 </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2015 Warner Hooh
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
     </div>
-    <footer><div id="footer" >
-	
-	<div class="line">
-		<span></span>
-		<div class="author"></div>
-	</div>
-	
-	
-	<div class="social-font clearfix">
-		
-		
-		
-		
-		
-	</div>
-		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
-		
-		<a href="http://yoursite.com" target="_blank" title="Warner Hooh">Warner Hooh</a>
-		
-		</p>
-</div>
+  </div>
 </footer>
-    <script src="/js/jquery-2.1.0.min.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.navbar').click(function(){
-    $('header nav').toggleClass('shownav');
-  });
-  var myWidth = 0;
-  function getSize(){
-    if( typeof( window.innerWidth ) == 'number' ) {
-      myWidth = window.innerWidth;
-    } else if( document.documentElement && document.documentElement.clientWidth) {
-      myWidth = document.documentElement.clientWidth;
-    };
-  };
-  var m = $('#main'),
-      a = $('#asidepart'),
-      c = $('.closeaside'),
-      o = $('.openaside');
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else
-    {
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-      
-      $('#toc.toc-aside').css('display', 'none');
-        
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js" type="text/javascript"></script>
+<script src="/js/main.js" type="text/javascript"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
-  });
-  c.click(function(){
-    a.addClass('fadeOut').css('display', 'none');
-    o.css('display', 'block').addClass('fadeIn');
-    m.addClass('moveMain');
-  });
-  o.click(function(){
-    o.css('display', 'none').removeClass('beforeFadeIn');
-    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
-    m.removeClass('moveMain');
-  });
-  $(window).scroll(function(){
-    o.css("top",Math.max(80,260-$(this).scrollTop()));
-  });
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
 });
 </script>
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var ai = $('.article-content>iframe'),
-      ae = $('.article-content>embed'),
-      t  = $('#toc'),
-      h  = $('article h2')
-      ah = $('article h2'),
-      ta = $('#toc.toc-aside'),
-      o  = $('.openaside'),
-      c  = $('.closeaside');
-  if(ai.length>0){
-    ai.wrap('<div class="video-container" />');
-  };
-  if(ae.length>0){
-   ae.wrap('<div class="video-container" />');
-  };
-  if(ah.length==0){
-    t.css('display','none');
-  }else{
-    c.click(function(){
-      ta.css('display', 'block').addClass('fadeIn');
-    });
-    o.click(function(){
-      ta.css('display', 'none');
-    });
-    $(window).scroll(function(){
-      ta.css("top",Math.max(140,320-$(this).scrollTop()));
-    });
-  };
-});
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
 </script>
 
 
-<script type="text/javascript">
-$(document).ready(function(){ 
-  var $this = $('.share'),
-      url = $this.attr('data-url'),
-      encodedUrl = encodeURIComponent(url),
-      title = $this.attr('data-title'),
-      tsina = $this.attr('data-tsina');
-  var html = [
-  '<a href="#" class="overlay" id="qrcode"></a>',
-  '<div class="qrcode clearfix"><span>扫描二维码分享到微信朋友圈</span><a class="qrclose" href="#share"></a><strong>Loading...Please wait</strong><img id="qrcode-pic" data-src="http://s.jiathis.com/qrcode.php?url=' + encodedUrl + '"/></div>',
-  '<a href="#textlogo" class="article-back-to-top" title="Top"></a>',
-  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
-  '<a href="#qrcode" class="article-share-qrcode" title="QRcode"></a>',
-  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
-  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="Weibo"></a>',
-  '<span title="Share to"></span>'
-  ].join('');
-  $this.append(html);
-  $('.article-share-qrcode').click(function(){
-    var imgSrc = $('#qrcode-pic').attr('data-src');
-    $('#qrcode-pic').attr('src', imgSrc);
-    $('#qrcode-pic').load(function(){
-        $('.qrcode strong').text(' ');
-    });
-  });
-});     
-</script>
-
-
-
-
-
-
-  </body>
+  </div>
+</body>
 </html>
