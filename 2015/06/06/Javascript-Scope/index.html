@@ -11,7 +11,7 @@
 <meta property="og:url" content="http://yoursite.com/2015/06/06/Javascript-Scope/index.html">
 <meta property="og:site_name" content="W' s">
 <meta property="og:description" content="Javascript Scope要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexica">
-<meta property="og:updated_time" content="2015-06-07T10:02:14.000Z">
+<meta property="og:updated_time" content="2015-10-22T17:02:46.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Javascript Scope">
 <meta name="twitter:description" content="Javascript Scope要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexica">
@@ -238,6 +238,7 @@
       
         <h1 id="Javascript_Scope">Javascript Scope</h1><p>要清楚的了解javascript运行逻辑，必须掌握javascript的作用域。这不仅有助于我们编写健壮的javascript代码，更有利于我们分析产生的代码bug。scope(作用域)、closure(闭包)、this(关键字)、namespace(命名空间)、function scope(函数作用域)、global scope(Global作用域)、lexical scope(词义作用域)、public/private scope(公共/私有作用域)等概念将在本文中介绍到。</p>
 <h2 id="什么是作用域">什么是作用域</h2><p>在javascript中，scope指的是你代码运行环境的上下文。Scopes可以在全局被定义，也可以在局部被定义。了解javascript的scope有助于提升javascript developer的编码能力。</p>
+<a id="more"></a>
 <h2 id="什么是全局作用域">什么是全局作用域</h2><p>在你编写一行javascript代码之前，你当前所处的上下文环境就是Global Scope。如果此时我们申明了一个变量，那么它就是全局变量。<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// global scope</span></span><br><span class="line"><span class="keyword">var</span> name = <span class="string">'Todd'</span>;</span><br></pre></td></tr></table></figure></p>
 <p>全局变量是一把双刃剑，要学会使用全局变量并要拿捏得当。你疆场会听到人们说“全局变量实在糟糕，尽量少使用全局变量！”，但是从来没有想过这是为什么。其实全局变量并不糟糕，当你需要创建Modules模块或者APIs时你就必须得使用全局变量来完成了。<br>每个人都在使用jQuery，Like this <code>jQuery(&#39;.myClass&#39;);</code><br>我们在Global Scope中使用jQuery，也可以把jQuery理解为scope的namespace命名空间。jQuery是全局对象，同时也是jQuery库中的命名空间，jQuery的所有方法都通过jQuery命名空间进行访问。</p>
 <h2 id="什么是局部作用域">什么是局部作用域</h2><p>局部作用域是指除了全局作用域以外定义的作用域，每个方法内部定义的作用域就是一个独立的局部作用域。<br>如果我在一个方法中定义了一个变量，那么这个变量就处在改方法的局部作用域中。举个栗子：<br><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Scope A: Global scope out here</span></span><br><span class="line"><span class="keyword">var</span> myFunction = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="comment">// Scope B: Local scope in here</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>

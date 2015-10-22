@@ -15,7 +15,7 @@ Web Worker的目">
 <meta property="og:description" content="Web Worker是HTML5中新增的一项技术，用于Web程序实现后台处理。
 一、WebWorker的概述及特性JavaScript语言采用的是单线程模型，也就是说，所有任务排成一个队列，一次只能做一件事。随着电脑计算能力的增强，这一点带来很大的不便，无法充分发挥JavaScript的潜力。尤其考虑到，File API允许JavaScript读取本地文件，就更是如此了。
 Web Worker的目">
-<meta property="og:updated_time" content="2015-06-06T07:08:06.000Z">
+<meta property="og:updated_time" content="2015-10-22T17:03:32.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HTML5 JS Thread -- Webworker">
 <meta name="twitter:description" content="Web Worker是HTML5中新增的一项技术，用于Web程序实现后台处理。
@@ -245,6 +245,7 @@ Web Worker的目">
         <p>Web Worker是HTML5中新增的一项技术，用于Web程序实现后台处理。</p>
 <h1 id="一、WebWorker的概述及特性">一、WebWorker的概述及特性</h1><p>JavaScript语言采用的是单线程模型，也就是说，所有任务排成一个队列，一次只能做一件事。随着电脑计算能力的增强，这一点带来很大的不便，无法充分发挥JavaScript的潜力。尤其考虑到，File API允许JavaScript读取本地文件，就更是如此了。</p>
 <p>Web Worker的目的，就是为JavaScript创造多线程环境，允许主线程将一些任务分配给子线程。在主线程运行的同时，子线程在后台运行，两者互不干扰。等到子线程完成计算任务，再把结果返回给主线程。因此，每一个子线程就好像一个“工人”（worker），默默地完成自己的工作。</p>
+<a id="more"></a>
 <p>首先，我们了解一下WebWorker的特性：</p>
 <ul>
 <li>同域限制。子线程加载的脚本文件，必须与主线程的脚本文件在同一个域。</li>
