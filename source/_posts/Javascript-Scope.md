@@ -11,6 +11,8 @@ category: Javascript
 ## 什么是作用域 ##
 在javascript中，scope指的是你代码运行环境的上下文。Scopes可以在全局被定义，也可以在局部被定义。了解javascript的scope有助于提升javascript developer的编码能力。
 
+<!-- more -->
+
 ## 什么是全局作用域 ##
 在你编写一行javascript代码之前，你当前所处的上下文环境就是Global Scope。如果此时我们申明了一个变量，那么它就是全局变量。
 ```javascript

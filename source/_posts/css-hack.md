@@ -11,9 +11,9 @@ category: CSS
 2. *IE*不支持min-属性
 	解决方案： 如果只用宽度和高度，正常的浏览器里这两个值就不会变，如果只用min-width和min-height的话，IE下面根本等于没有设置宽度和高度。 比如要设置背景图片，这个宽度是比较重要的。要解决这个问题，可以这样：` #box{ width: 80px; height: 35px;}html>body #box{ width: auto; height: auto; min-width: 80px; min-height: 35px;} `
 
+<!-- more -->
 3. *IE*不支持页面最小宽度min-设置
 	解决方案： 它可以指定元素最小也不能小于某个宽度，这样就能保证排版一直正确。但IE不认得这个，而它实际上把width当做最小宽度来使。为了让这一命令在IE上也能用，可以把一个<div> 放到 <body> 标签下，然后为div指定一个类, 然后CSS这样设计：` #container{ min-width: 600px; width:expression(document.body.clientWidth < 600? "600px": "auto" );} `第一个min-width是正常的；但第2行的width使用了Javascript，这只有IE才认得，这也会让你的HTML文档不太正规。它实际上通过Javascript的判断来实现最小宽度。 
-
 4. *IE*左边浮动元素与右边元素产生3px边距问题
 	DIV浮动在IE下产生3象素的bug 左边对象浮动，右边采用外补丁的左边距来定位，右边对象内的文本会离左边有3px的间距. ` #box{ float:left; width:800px;} #left{ float:left; width:50%;} #right{ width:50%;} *html #left{ margin-right:-3px; //这句是关键} ` ` <div id="box"> <div id="left"></div> <div id="right"></div> </div> `
 

@@ -17,7 +17,7 @@ category: Javascript
 在React Flux中有三个重要的概念：*Dispatcher*、*Stores*、*Views*。
 
 - Dispatcher 分发中心。Dispatcher是Flux的中枢，管理着所有数据流动作。它本质上是Store的回调函数，每个Store管理着自己的数据模型，同时通过Dispatcher注册了一个回调函数，当Dispatcher响应Action时将会挂载Action的数据并发送给对应的Store处理。
-
+<!-- more -->
 - Stores 数据处理中心。每个独立的模块应该独立出一个Store，Store就是每个模块数据的存储、加工的地方。Store中定义一个供监听数据改变的事件供React最外层模块监听并作出响应(setState)。同时每个Store挂载了对Dispatcher的分发规则(通过actionType匹配)
 
 - Acions 行为动作管理。Action即管理用户的动作并交给Dispatcher分发出去，分发时挂载动作触发时的数据。

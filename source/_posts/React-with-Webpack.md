@@ -13,6 +13,7 @@ React是facebook团队打造的前端js框架，现在很多人都在使用React
 
 React认为一切皆模块，一段js代码是一个模块，一个css样式文件是一个模块。这样一个较复杂的项目就可以分成很多个完全独立的模块，每个同事并行开发，然后再将这些模块组装好。
 React支持也推荐使用CommonJs规范编写代码，使用require加载一个模块，使用exports对外暴露接口。如果你写过nodejs应该对这种语法非常熟悉。
+<!-- more -->
 ``` javascript
 
 	var lib = require('lib.js'); //加载对于lib模块的依赖
