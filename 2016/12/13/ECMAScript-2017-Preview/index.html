@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>ECMAScript-2017-Preview | W&#39; s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="ECMAScript 2017 PreviewArray.prototype.includesArray.prototype.includes（value[, index]）： boolean&amp;gt; [1, 2, 3].includes(2);// true&amp;gt; [1, 2, 3].includes(2, 2);// false
+Why includes, we have indexOf a">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ECMAScript-2017-Preview">
+<meta property="og:url" content="http://yoursite.com/2016/12/13/ECMAScript-2017-Preview/index.html">
+<meta property="og:site_name" content="W' s">
+<meta property="og:description" content="ECMAScript 2017 PreviewArray.prototype.includesArray.prototype.includes（value[, index]）： boolean&amp;gt; [1, 2, 3].includes(2);// true&amp;gt; [1, 2, 3].includes(2, 2);// false
+Why includes, we have indexOf a">
+<meta property="og:updated_time" content="2018-03-11T17:39:44.761Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="ECMAScript-2017-Preview">
+<meta name="twitter:description" content="ECMAScript 2017 PreviewArray.prototype.includesArray.prototype.includes（value[, index]）： boolean&amp;gt; [1, 2, 3].includes(2);// true&amp;gt; [1, 2, 3].includes(2, 2);// false
+Why includes, we have indexOf a">
+  
+    <link rel="alternative" href="/atom.xml" title="W&#39; s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/12759641?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Warner Hooh</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">诗和远方</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/WarnerHooh" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Object-Oriented/" style="font-size: 10px;">Object Oriented</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/extend/" style="font-size: 10px;">extend</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Warner Hooh</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars0.githubusercontent.com/u/12759641?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Warner Hooh</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">诗和远方</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/WarnerHooh" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-ECMAScript-2017-Preview" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/13/ECMAScript-2017-Preview/" class="article-date">
+  	<time datetime="2016-12-13T12:51:24.000Z" itemprop="datePublished">2016-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      ECMAScript-2017-Preview
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+        
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ECMAScript_2017_Preview">ECMAScript 2017 Preview</h1><h2 id="Array-prototype-includes">Array.prototype.includes</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.includes（value[, index]）： boolean</span><br><span class="line"></span><br><span class="line">&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>Why <code>includes</code>, we have <code>indexOf</code> already?<br><a id="more"></a></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; [<span class="literal">NaN</span>].indexOf(<span class="literal">NaN</span>);</span><br><span class="line"><span class="comment">// -1</span></span><br><span class="line">&gt; [<span class="literal">NaN</span>].includes(<span class="literal">NaN</span>);</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<h2 id="Exponentiation_operator">Exponentiation operator</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> squared = <span class="number">3</span> ** <span class="number">2</span>;</span><br><span class="line">&gt; <span class="built_in">Math</span>.pow(<span class="number">3</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// 9</span></span><br><span class="line">&gt; <span class="keyword">let</span> num = <span class="number">3</span>;</span><br><span class="line">&gt; num ** = <span class="number">2</span>;</span><br><span class="line">&gt; <span class="built_in">console</span>.log(num);</span><br><span class="line"><span class="comment">// 9</span></span><br></pre></td></tr></table></figure>
+<h2 id="Trailing_commas_in_function_parameter_lists_and_calls">Trailing commas in function parameter lists and calls</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span><br><span class="line">    param1,</span><br><span class="line">    param2,</span><br><span class="line">  </span>) </span>&#123;&#125;</span><br><span class="line">  </span><br><span class="line">&gt; foo(</span><br><span class="line">    <span class="string">"a"</span>, </span><br><span class="line">    <span class="string">"b"</span>,</span><br><span class="line">  );</span><br><span class="line">  </span><br><span class="line">&gt; <span class="built_in">console</span>.log(foo.length);</span><br><span class="line"><span class="comment">// 2</span></span><br></pre></td></tr></table></figure>
+<h2 id="String-prototype-padStart_&amp;_String-prototype-padEnd">String.prototype.padStart &amp; String.prototype.padEnd</h2><p>String.prototype.padStart(maxLength, fillString=’ ‘)</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="string">'x'</span>.padStart(<span class="number">5</span>, <span class="string">'ab'</span>);</span><br><span class="line"><span class="comment">// 'ababx'</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="string">'x'</span>.padStart(<span class="number">4</span>, <span class="string">'ab'</span>);</span><br><span class="line"><span class="comment">// 'abax'</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="string">'abcd'</span>.padStart(<span class="number">2</span>, <span class="string">'#'</span>);</span><br><span class="line"><span class="comment">// 'abcd'</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="string">'abc'</span>.padStart(<span class="number">10</span>, <span class="string">'0123456789'</span>);</span><br><span class="line"><span class="comment">// '0123456abc'</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="string">'x'</span>.padStart(<span class="number">3</span>);</span><br><span class="line"><span class="comment">// '  x'</span></span><br></pre></td></tr></table></figure>
+<h2 id="Object-values_&amp;_Object-entries">Object.values &amp; Object.entries</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> obj = &#123;foo: <span class="string">"bar"</span>, baz: <span class="number">7</span>&#125;</span><br><span class="line">&gt; <span class="built_in">Object</span>.keys(obj);</span><br><span class="line"><span class="comment">// ["foo", "baz"]</span></span><br><span class="line">&gt; <span class="built_in">Object</span>.values(obj);</span><br><span class="line"><span class="comment">// ["bar", 7]</span></span><br><span class="line">&gt; <span class="built_in">Object</span>.entries(obj);</span><br><span class="line"><span class="comment">// [["foo", "bar"], ["baz", 7]]</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">Map</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>(<span class="built_in">Object</span>.entries(obj));</span><br><span class="line"><span class="comment">// Map &#123;"foo" =&gt; "bar", "baz" =&gt; 7&#125;</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="built_in">Object</span>.entries(<span class="string">"foo"</span>);</span><br><span class="line"><span class="comment">// [["0", "f"], ["1", "o"], ["2", "o"]]</span></span><br></pre></td></tr></table></figure>
+<h2 id="Object-getOwnPropertyDescriptors">Object.getOwnPropertyDescriptors</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">let</span> obj= &#123;&#125;;</span><br><span class="line">&gt; <span class="built_in">Object</span>.defineProperty(obj, <span class="string">"foo"</span>, &#123;</span><br><span class="line">    <span class="comment">// value: "bar",</span></span><br><span class="line">    <span class="comment">// writable: false,</span></span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">false</span>,</span><br><span class="line">    get: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="keyword">this</span>.value;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(obj));</span><br><span class="line"><span class="comment">// &#123; foo:</span></span><br><span class="line"><span class="comment">//    &#123; get: [Function],</span></span><br><span class="line"><span class="comment">//      set: undefined,</span></span><br><span class="line"><span class="comment">//      enumerable: true,</span></span><br><span class="line"><span class="comment">//      configurable: false &#125; &#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Use_cases">Use cases</h3><p><strong>copying properties into an object</strong></p>
+<p>Since ES6, JavaScript already has a tool method for copying properties: Object.assign(). However, this method uses simple get and set operations to copy a property whose key is key. That means that it doesn’t properly copy properties with non-default attributes (getters, setters, non-writable properties, etc.).</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> source = &#123;</span><br><span class="line">    set foo(value) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(value);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;;</span><br><span class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(source, <span class="string">'foo'</span>));</span><br><span class="line"><span class="comment">// &#123; get: undefined,</span></span><br><span class="line"><span class="comment">//   set: [Function: foo],</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   configurable: true &#125;</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">const</span> target1 = &#123;&#125;;</span><br><span class="line">&gt; <span class="built_in">Object</span>.assign(target1, source);</span><br><span class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(target1, <span class="string">'foo'</span>));</span><br><span class="line"><span class="comment">// &#123; value: undefined,</span></span><br><span class="line"><span class="comment">//   writable: true,</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   configurable: true &#125;</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">const</span> target2 = &#123;&#125;;</span><br><span class="line">&gt; <span class="built_in">Object</span>.defineProperties(target2, <span class="built_in">Object</span>.getOwnPropertyDescriptors(source));</span><br><span class="line">&gt; <span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptor(target2, <span class="string">'foo'</span>));</span><br><span class="line"><span class="comment">// &#123; get: undefined,</span></span><br><span class="line"><span class="comment">//   set: [Function: foo],</span></span><br><span class="line"><span class="comment">//   enumerable: true,</span></span><br><span class="line"><span class="comment">//   configurable: true &#125;</span></span><br></pre></td></tr></table></figure>
+<p><strong>cloning objects</strong></p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">const</span> clone = <span class="built_in">Object</span>.create(<span class="built_in">Object</span>.getPrototypeOf(obj), <span class="built_in">Object</span>.getOwnPropertyDescriptors(obj));</span><br></pre></td></tr></table></figure>
+<h2 id="Async_functions">Async functions</h2><h3 id="Overview">Overview</h3><h4 id="Variants">Variants</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&gt; <span class="keyword">const</span> foo = <span class="keyword">async</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">&gt; <span class="keyword">const</span> foo = <span class="keyword">async</span> () =&gt; &#123;&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Always_return_Promises">Always return Promises</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="string">'foo'</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&gt; foo().then(x =&gt; <span class="built_in">console</span>.log(x));</span><br><span class="line"><span class="comment">// foo</span></span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'Problem!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&gt; bar().catch(err =&gt; <span class="built_in">console</span>.log(err));</span><br><span class="line"><span class="comment">// Error: Problem!</span></span><br></pre></td></tr></table></figure>
+<h4 id="Handling_results_and_errors_of_asynchronous_computations_via_await">Handling results and errors of asynchronous computations via <em>await</em></h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	 <span class="keyword">try</span> &#123;</span><br><span class="line">		<span class="keyword">const</span> r1 = <span class="keyword">await</span> otherAsyncFunc1();</span><br><span class="line">    	<span class="built_in">console</span>.log(r1);</span><br><span class="line">   	 	<span class="keyword">const</span> r2 = <span class="keyword">await</span> otherAsyncFunc2();</span><br><span class="line">		<span class="built_in">console</span>.log(r2);</span><br><span class="line">	 &#125; <span class="keyword">catch</span>(err) &#123;</span><br><span class="line">	 	<span class="built_in">console</span>.log(err);</span><br><span class="line">	 &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Understanding_async_functions">Understanding async functions</h3><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">// Promise</span></span><br><span class="line">&gt; <span class="function"><span class="keyword">function</span> <span class="title">fetchJson</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> fetch(url)</span><br><span class="line">    .then(request =&gt; request.text())</span><br><span class="line">    .then(text =&gt; &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(text);</span><br><span class="line">    &#125;)</span><br><span class="line">    .catch(error =&gt; &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`ERROR: <span class="subst">$&#123;error.stack&#125;</span>`</span>);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&gt; fetchJson(<span class="string">'http://example.com/some_file.json'</span>).then(obj =&gt; <span class="built_in">console</span>.log(obj));</span><br><span class="line"></span><br><span class="line"><span class="comment">// Generator with co</span></span><br><span class="line">&gt; <span class="keyword">const</span> fetchJson = co.wrap(<span class="function"><span class="keyword">function</span>* (<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> request = <span class="keyword">yield</span> fetch(url);</span><br><span class="line">      <span class="keyword">let</span> text = <span class="keyword">yield</span> request.text();</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(text);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`ERROR: <span class="subst">$&#123;error.stack&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;);</span><br><span class="line">  </span><br><span class="line"><span class="comment">// Async </span></span><br><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">fetchJson</span>(<span class="params">url</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      <span class="keyword">let</span> request = <span class="keyword">await</span> fetch(url);</span><br><span class="line">      <span class="keyword">let</span> text = <span class="keyword">await</span> request.text();</span><br><span class="line">      <span class="keyword">return</span> <span class="built_in">JSON</span>.parse(text);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">catch</span> (error) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`ERROR: <span class="subst">$&#123;error.stack&#125;</span>`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Async_functions_are_started_synchronously,_settled_asynchronously">Async functions are started synchronously, settled asynchronously</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'asyncFunc()'</span>);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">'abc'</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&gt; asyncFunc().then(x =&gt; <span class="built_in">console</span>.log(<span class="string">`Resolved: <span class="subst">$&#123;x&#125;</span>`</span>));</span><br><span class="line">&gt; <span class="built_in">console</span>.log(<span class="string">'main'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// asyncFunc()</span></span><br><span class="line"><span class="comment">// main</span></span><br><span class="line"><span class="comment">// Resolved: abc</span></span><br></pre></td></tr></table></figure>
+<h3 id="Tips_for_Async_functions">Tips for Async functions</h3><h4 id="Don’t_forget_await">Don’t forget <em>await</em></h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> value = otherAsyncFunc(); <span class="comment">// missing `await`!</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="You_don’t_need_await_if_you_“fire_and_forget”">You don’t need await if you “fire and forget”</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">asyncFunc</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> writer = openFile(<span class="string">'someFile.txt'</span>);</span><br><span class="line">    writer.write(<span class="string">'hello'</span>); <span class="comment">// don’t wait</span></span><br><span class="line">    writer.write(<span class="string">'world'</span>); <span class="comment">// don’t wait</span></span><br><span class="line">    <span class="keyword">await</span> writer.close(); <span class="comment">// wait for file to close</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="await_is_sequential,_Promise-all()_is_parallel"><em>await</em> is sequential, <em>Promise.all()</em> is parallel</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> [result1, result2] = <span class="keyword">await</span> <span class="built_in">Promise</span>.all([</span><br><span class="line">      asyncFunc1(),</span><br><span class="line">      asyncFunc2()</span><br><span class="line">    ]);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Async_functions_and_callbacks">Async functions and callbacks</h3><p>Array.prototype.map</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadContent</span>(<span class="params">urls</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> urls.map(url =&gt; &#123;</span><br><span class="line">      <span class="comment">// Wrong syntax!</span></span><br><span class="line">      <span class="keyword">const</span> content = <span class="keyword">await</span> httpGet(url);</span><br><span class="line">      <span class="keyword">return</span> content;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadContent</span>(<span class="params">urls</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> promiseArray = urls.map(url =&gt; httpGet(url));</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">Promise</span>.all(promiseArray);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>Array.prototype.forEach</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">logContent</span>(<span class="params">urls</span>) </span>&#123;</span><br><span class="line">    urls.forEach(<span class="keyword">async</span> url =&gt; &#123;</span><br><span class="line">      <span class="keyword">const</span> content = <span class="keyword">await</span> httpGet(url);</span><br><span class="line">      <span class="built_in">console</span>.log(content);</span><br><span class="line">    &#125;);</span><br><span class="line">    <span class="comment">// Not finished here</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&gt; <span class="keyword">async</span> <span class="function"><span class="keyword">function</span> <span class="title">logContent</span>(<span class="params">urls</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> url <span class="keyword">of</span> urls) &#123;</span><br><span class="line">      <span class="keyword">const</span> content = <span class="keyword">await</span> httpGet(url);</span><br><span class="line">      <span class="built_in">console</span>.log(content);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2017/03/12/Javascript-OO/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption"><</strong>
+      <div class="article-nav-title">
+        
+          Object Oriented Javascript
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/07/02/React-Flux/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">React Flux</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="ECMAScript-2017-Preview" data-title="ECMAScript-2017-Preview" data-url="http://yoursite.com/2016/12/13/ECMAScript-2017-Preview/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Warner Hooh
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>

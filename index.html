@@ -41,7 +41,7 @@
 		</hgroup>
 
 		
-		<p class="header-subtitle">Super Blade</p>
+		<p class="header-subtitle">诗和远方</p>
 		
 
 		
@@ -116,7 +116,7 @@
 				
 				<section class="switch-part switch-part2">
 					<div class="widget tagcloud" id="js-tagcloud">
-						<a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Object-Oriented/" style="font-size: 10px;">Object Oriented</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/extend/" style="font-size: 10px;">extend</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+						<a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Object-Oriented/" style="font-size: 10px;">Object Oriented</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/extend/" style="font-size: 10px;">extend</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
 					</div>
 				</section>
 				
@@ -171,7 +171,7 @@
 			  <h1 class="header-author">Warner Hooh</h1>
 			</hgroup>
 			
-			<p class="header-subtitle">Super Blade</p>
+			<p class="header-subtitle">诗和远方</p>
 			
 			<nav class="header-menu">
 				<ul>
@@ -202,11 +202,11 @@
 
       <div class="body-wrap">
   
-    <article id="post-Javascript-Inheritance" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Javascript-OO" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2016/03/09/Javascript-Inheritance/" class="article-date">
-  	<time datetime="2016-03-09T14:07:22.000Z" itemprop="datePublished">2016-03-09</time>
+      <a href="/2017/03/12/Javascript-OO/" class="article-date">
+  	<time datetime="2017-03-11T17:40:22.000Z" itemprop="datePublished">2017-03-12</time>
 </a>
     </div>
   
@@ -219,7 +219,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2016/03/09/Javascript-Inheritance/">Object Oriented Javascript</a>
+      <a class="article-title" href="/2017/03/12/Javascript-OO/">Object Oriented Javascript</a>
     </h1>
   
 
@@ -228,7 +228,9 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Object_Oriented_Javascript">Object Oriented Javascript</h1>
+        <h1 id="Object_Oriented_Javascript">Object Oriented Javascript</h1><h2 id="类">类</h2><h3 id="如何声明一个类">如何声明一个类</h3><p>在ES6之前，我们这样声明一个类</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vehicle</span>(<span class="params">engines</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.engines = engines;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vehicle.prototype.ignition = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Turning on '</span> + <span class="keyword">this</span>.engines + <span class="string">' engines!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vehicle = <span class="keyword">new</span> Vehicle(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(vehicle.engines);</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line">vehicle.ignition();</span><br><span class="line"><span class="comment">// Turning on 2 engines!</span></span><br></pre></td></tr></table></figure>
+<p>当使用<code>new</code>操作符调用一个函数(和函数名无关，用作类时习惯首字母大写)时，会使用该函数构造一个对象，大概发生了以下几件事：<br>
       
     </div>
     
@@ -245,6 +247,71 @@
 	</div>
 
 
+      
+        <p class="article-more-link">
+          <a  href="/2017/03/12/Javascript-OO/#more">more >></a>
+        </p>
+      
+      <div class="clearfix"></div>
+    </div>
+    
+  </div>
+  
+</article>
+
+
+
+
+
+
+
+
+
+  
+    <article id="post-ECMAScript-2017-Preview" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2016/12/13/ECMAScript-2017-Preview/" class="article-date">
+  	<time datetime="2016-12-13T12:51:24.000Z" itemprop="datePublished">2016-12-13</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/12/13/ECMAScript-2017-Preview/">ECMAScript-2017-Preview</a>
+    </h1>
+  
+
+      </header>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="ECMAScript_2017_Preview">ECMAScript 2017 Preview</h1><h2 id="Array-prototype-includes">Array.prototype.includes</h2><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">Array</span>.prototype.includes（value[, index]）： boolean</span><br><span class="line"></span><br><span class="line">&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>);</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">&gt; [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>].includes(<span class="number">2</span>, <span class="number">2</span>);</span><br><span class="line"><span class="comment">// false</span></span><br></pre></td></tr></table></figure>
+<p>Why <code>includes</code>, we have <code>indexOf</code> already?<br>
+      
+    </div>
+    
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/javascript/">javascript</a></li></ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a  href="/2016/12/13/ECMAScript-2017-Preview/#more">more >></a>
+        </p>
       
       <div class="clearfix"></div>
     </div>
@@ -733,7 +800,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2016 Warner Hooh
+    		&copy; 2018 Warner Hooh
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <title>Object Oriented Javascript | W&#39; s</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Object Oriented Javascript类如何声明一个类在ES6之前，我们这样声明一个类
+function Vehicle(engines) &amp;#123;  this.engines = engines;&amp;#125;Vehicle.prototype.ignition = function() &amp;#123;  console.log(&apos;Turning on &apos; + this.engin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Object Oriented Javascript">
+<meta property="og:url" content="http://yoursite.com/2017/03/12/Javascript-OO/index.html">
+<meta property="og:site_name" content="W' s">
+<meta property="og:description" content="Object Oriented Javascript类如何声明一个类在ES6之前，我们这样声明一个类
+function Vehicle(engines) &amp;#123;  this.engines = engines;&amp;#125;Vehicle.prototype.ignition = function() &amp;#123;  console.log(&apos;Turning on &apos; + this.engin">
+<meta property="og:image" content="https://github.com/WarnerHooh/WarnerHooh.github.io/blob/hexo/source/_posts/images/javascript-prototype.jpg?raw=true">
+<meta property="og:updated_time" content="2018-03-11T17:42:00.882Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Object Oriented Javascript">
+<meta name="twitter:description" content="Object Oriented Javascript类如何声明一个类在ES6之前，我们这样声明一个类
+function Vehicle(engines) &amp;#123;  this.engines = engines;&amp;#125;Vehicle.prototype.ignition = function() &amp;#123;  console.log(&apos;Turning on &apos; + this.engin">
+<meta name="twitter:image" content="https://github.com/WarnerHooh/WarnerHooh.github.io/blob/hexo/source/_posts/images/javascript-prototype.jpg?raw=true">
+  
+    <link rel="alternative" href="/atom.xml" title="W&#39; s" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <div id="container">
+    <div class="left-col">
+    <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			
+			<img lazy-src="https://avatars0.githubusercontent.com/u/12759641?v=3&amp;s=460" class="js-avatar">
+			
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Warner Hooh</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">诗和远方</p>
+		
+
+		
+			<div class="switch-btn">
+				<div class="icon">
+					<div class="icon-ctn">
+						<div class="icon-wrap icon-house" data-idx="0">
+							<div class="birdhouse"></div>
+							<div class="birdhouse_holes"></div>
+						</div>
+						<div class="icon-wrap icon-ribbon hide" data-idx="1">
+							<div class="ribbon"></div>
+						</div>
+						
+						<div class="icon-wrap icon-link hide" data-idx="2">
+							<div class="loopback_l"></div>
+							<div class="loopback_r"></div>
+						</div>
+						
+						
+						<div class="icon-wrap icon-me hide" data-idx="3">
+							<div class="user"></div>
+							<div class="shoulder"></div>
+						</div>
+						
+					</div>
+					
+				</div>
+				<div class="tips-box hide">
+					<div class="tips-arrow"></div>
+					<ul class="tips-inner">
+						<li>Menu</li>
+						<li>Tags</li>
+						
+						<li>Links</li>
+						
+						
+						<li>Über</li>
+						
+					</ul>
+				</div>
+			</div>
+		
+
+		<div class="switch-area">
+			<div class="switch-wrap">
+				<section class="switch-part switch-part1">
+					<nav class="header-menu">
+						<ul>
+						
+							<li><a href="/">主页</a></li>
+				        
+							<li><a href="/archives">所有文章</a></li>
+				        
+						</ul>
+					</nav>
+					<nav class="header-nav">
+						<div class="social">
+							
+								<a class="github" target="_blank" href="https://github.com/WarnerHooh" title="github">github</a>
+					        
+								<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+					        
+								<a class="rss" target="_blank" href="#" title="rss">rss</a>
+					        
+								<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+					        
+						</div>
+					</nav>
+				</section>
+				
+				
+				<section class="switch-part switch-part2">
+					<div class="widget tagcloud" id="js-tagcloud">
+						<a href="/tags/Flux/" style="font-size: 10px;">Flux</a> <a href="/tags/HTML5/" style="font-size: 10px;">HTML5</a> <a href="/tags/Javascript/" style="font-size: 20px;">Javascript</a> <a href="/tags/MVC/" style="font-size: 10px;">MVC</a> <a href="/tags/Object-Oriented/" style="font-size: 10px;">Object Oriented</a> <a href="/tags/React/" style="font-size: 10px;">React</a> <a href="/tags/Tools/" style="font-size: 10px;">Tools</a> <a href="/tags/Webpack/" style="font-size: 10px;">Webpack</a> <a href="/tags/css/" style="font-size: 10px;">css</a> <a href="/tags/extend/" style="font-size: 10px;">extend</a> <a href="/tags/hack/" style="font-size: 10px;">hack</a> <a href="/tags/inheritance/" style="font-size: 10px;">inheritance</a> <a href="/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/tags/react/" style="font-size: 10px;">react</a> <a href="/tags/scope/" style="font-size: 10px;">scope</a> <a href="/tags/webpack/" style="font-size: 10px;">webpack</a>
+					</div>
+				</section>
+				
+				
+				
+				<section class="switch-part switch-part3">
+					<div id="js-friends">
+					
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">奥巴马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">卡卡的美丽传说</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">本泽马的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">吉格斯的博客</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">习大大大不同</a>
+			        
+			          <a target="_blank" class="main-nav-link switch-friends-link" href="http://localhost:4000/">托蒂的博客</a>
+			        
+			        </div>
+				</section>
+				
+
+				
+				
+				<section class="switch-part switch-part4">
+				
+					<div id="js-aboutme">我是谁，我从哪里来，我到哪里去？我就是我，是颜色不一样的吃货…</div>
+				</section>
+				
+			</div>
+		</div>
+	</header>				
+</div>
+
+    </div>
+    <div class="mid-col">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"></div>
+  		<h1 class="header-author js-mobile-header hide">Warner Hooh</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+			
+				<img lazy-src="https://avatars0.githubusercontent.com/u/12759641?v=3&amp;s=460" class="js-avatar">
+			
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Warner Hooh</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">诗和远方</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/archives">所有文章</a></li>
+		        
+		        <div class="clearfix"></div>
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/WarnerHooh" title="github">github</a>
+			        
+						<a class="weibo" target="_blank" href="#" title="weibo">weibo</a>
+			        
+						<a class="rss" target="_blank" href="#" title="rss">rss</a>
+			        
+						<a class="zhihu" target="_blank" href="#" title="zhihu">zhihu</a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div class="body-wrap"><article id="post-Javascript-OO" class="article article-type-post" itemscope itemprop="blogPost">
+  
+    <div class="article-meta">
+      <a href="/2017/03/12/Javascript-OO/" class="article-date">
+  	<time datetime="2017-03-11T17:40:22.000Z" itemprop="datePublished">2017-03-12</time>
+</a>
+    </div>
+  
+  <div class="article-inner">
+    
+      <input type="hidden" class="isFancy" />
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Object Oriented Javascript
+    </h1>
+  
+
+      </header>
+      
+      <div class="article-info article-info-post">
+        
+	<div class="article-tag tagcloud">
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Javascript/">Javascript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Object-Oriented/">Object Oriented</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/extend/">extend</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/inheritance/">inheritance</a></li></ul>
+	</div>
+
+        
+	<div class="article-category tagcloud">
+	<a class="article-category-link" href="/categories/Javascript/">Javascript</a>
+	</div>
+
+
+        <div class="clearfix"></div>
+      </div>
+      
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Object_Oriented_Javascript">Object Oriented Javascript</h1><h2 id="类">类</h2><h3 id="如何声明一个类">如何声明一个类</h3><p>在ES6之前，我们这样声明一个类</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Vehicle</span>(<span class="params">engines</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.engines = engines;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Vehicle.prototype.ignition = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Turning on '</span> + <span class="keyword">this</span>.engines + <span class="string">' engines!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vehicle = <span class="keyword">new</span> Vehicle(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(vehicle.engines);</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line">vehicle.ignition();</span><br><span class="line"><span class="comment">// Turning on 2 engines!</span></span><br></pre></td></tr></table></figure>
+<p>当使用<code>new</code>操作符调用一个函数(和函数名无关，用作类时习惯首字母大写)时，会使用该函数构造一个对象，大概发生了以下几件事：<br><a id="more"></a></p>
+<ul>
+<li>所以在<code>Vehicle</code>函数中，创建一个空对象</li>
+<li>将该对象绑定到函数调用的<code>this</code></li>
+<li>将该对象的 <em>[[Prototype]]</em> 指向<code>Vehicle.prototype</code></li>
+<li>如果<code>Vehicle</code>函数没有返回其他对象，默认返回该对象</li>
+</ul>
+<p>初始化的值如<code>engines</code>会分别绑定到实例化的所有对象上，而<code>prototype</code>上的值(方法)则会被所有实例化的对象共享。</p>
+<h3 id="类和对象">类和对象</h3><p>类和对象是一种怎样的关系？对象是类的实例。没错，但是这背后有什么故事呢？首先列几个知识点。</p>
+<ol>
+<li><p>类其实就是方法<code>function</code>，每个<code>function</code>都有一个<code>prototype</code>对象，该对象有一个特殊的属性<code>constructor</code>指向该<code>function</code>。</p>
+</li>
+<li><p>实例也就是对象<code>object</code>，几乎每个<code>object</code>都有一个 <em>[[Prototype]]</em> 属性的对象，可以通过非标准的接口<code>__proto__</code>查看，该对象指向构造该实例的构造函数的原型链。 所以</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">vehicle.__proto__ === Vehicle.prototype;</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p> ES6之后新增了标准接口<code>Object.getPrototypeOf</code>和<code>Object.setPrototypeOf</code>来获取和设置对象的 <em>[[Prototype]]</em> 。</p>
+</li>
+<li><p>所有的<code>function</code>也是<code>object</code>(由<code>Function</code>构造)。所以</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">Vehicle.__proto__ === <span class="built_in">Function</span>.prototype</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过 <code>instanceof</code> 判断对象是否是某个类的实例。判断的逻辑是一层一层遍历对象的 <em>[[Prototype]]</em> , 如果某个类的<code>prototype</code>出现在该对象的 <em>[[Prototype]]</em> 链中则返回true。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line">vehicle <span class="keyword">instanceof</span> Vehicle;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">vehicle <span class="keyword">instanceof</span> Foo;</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line"></span><br><span class="line">vehicle.__proto__.__proto__ = Foo.prototype;</span><br><span class="line">vehicle <span class="keyword">instanceof</span> Foo;</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>有图有真相<br><img src="https://github.com/WarnerHooh/WarnerHooh.github.io/blob/hexo/source/_posts/images/javascript-prototype.jpg?raw=true" alt="alt prototype"></p>
+<h3 id="如何实现类的继承">如何实现类的继承</h3><p>实现类的继承方法很多，大概列举以下几种</p>
+<h4 id="原型链继承">原型链继承</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">wheels</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car.prototype = <span class="keyword">new</span> Vehicle(<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">Car.prototype.drive = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Steering '</span> + <span class="keyword">this</span>.wheels + <span class="string">' wheels and moving forward!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car(<span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(car.engines);</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(car.hasOwnProperty(<span class="string">'engines'</span>));</span><br><span class="line"><span class="comment">// false</span></span><br><span class="line">car.ignition();</span><br><span class="line"><span class="comment">// Turning on 2 engines!</span></span><br></pre></td></tr></table></figure>
+<p>该方案思路是将子类<code>Car</code>的原型链指向一个父类<code>Vehicle</code>实例对象，这样通过子类实例化的对象<code>car</code>就能从原型链上面调用到父类的方法<code>ignition</code>了。注意该方案存在以下问题:</p>
+<p>① 在实例化子类对象时没办法动态向父类构造函数值传参，就上面的代码我们就无法再构造一个具有4个<code>engine</code>的<code>car</code>了。</p>
+<p>② 由于直接将prototype指向实例化的父类对象，导致初始化的属性被直接绑定到了子类<code>Car</code>的原型链上(并非每个实例本身上)，如果该属性是一个引用类型，这会造成一个实例的修改也会影响到其他的实例。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.ref = &#123;name: <span class="string">'foo'</span>&#125;;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Bar.prototype = <span class="keyword">new</span> Foo();</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar1 = <span class="keyword">new</span> Bar();</span><br><span class="line"><span class="built_in">console</span>.log(bar1.ref.name);</span><br><span class="line"><span class="comment">// 'foo'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> bar2 = <span class="keyword">new</span> Bar();</span><br><span class="line"><span class="built_in">console</span>.log(bar2.ref.name);</span><br><span class="line"><span class="comment">// 'foo'</span></span><br><span class="line"></span><br><span class="line">bar2.ref.name = <span class="string">'bar2'</span>; </span><br><span class="line"><span class="built_in">console</span>.log(bar1.ref.name);</span><br><span class="line"><span class="comment">// 'bar2'</span></span><br></pre></td></tr></table></figure>
+<p>③ 通该子类<code>Car</code>构造的实例的<code>constructor</code>指向父类<code>Vehicle</code>。这是因为对象的<code>constructor</code>属性其实是指向其 <em>[[Prototype]]</em> 的<code>constructor</code>，当然只需复写一下该属性即可。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(car.constructor);</span><br><span class="line"><span class="comment">// Vehicle</span></span><br><span class="line"></span><br><span class="line">Car.prototype.constructor = Car;</span><br><span class="line"><span class="built_in">console</span>.log(car.constructor);</span><br><span class="line"><span class="comment">// Car</span></span><br></pre></td></tr></table></figure>
+<h4 id="借用构造函数继承">借用构造函数继承</h4><figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">engines, wheels</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(car.engines);</span><br><span class="line"><span class="comment">// 2</span></span><br><span class="line"><span class="built_in">console</span>.log(car.wheels);</span><br><span class="line"><span class="comment">// 4</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>通过父类构造函数借用的方式，可以实现实例化子类对象时向父类构造函数动态传参(即上面提到的问题①)。</li>
+<li>而且绑定<code>this</code>子类实例对象借用父类构造函数，通过父类构造函数初始化的属性会直接绑定到实例化的每一个对象上，因此不会存在多个实例之间互相影响的问题(即上面提到的问题②)。</li>
+</ul>
+<p>但是单独使用该方式很少，因为不涉及到原型链继承没有太大意义。</p>
+<h4 id="混合继承">混合继承</h4><p>即上面的原型链继承与构造函数借用继承相结合，弥补各自的不足。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">engines, wheels</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car.prototype = <span class="keyword">new</span> Vehicle();</span><br><span class="line">Car.prototype.constructor = Car;</span><br><span class="line"></span><br><span class="line">Car.prototype.drive = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Steering '</span> + <span class="keyword">this</span>.wheels + <span class="string">' wheels and moving forward!'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car(<span class="number">3</span>, <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(car.engines);</span><br><span class="line"><span class="comment">// 3</span></span><br><span class="line"><span class="built_in">console</span>.log(car.hasOwnProperty(<span class="string">'engines'</span>));</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">car.ignition();</span><br><span class="line"><span class="comment">// Turning on 3 engines!</span></span><br></pre></td></tr></table></figure>
+<p>通过该方式继承仍有两个缺点</p>
+<p>① 父类<code>Vehicle</code>的构造方法调用了两次，造成了不必要的内存消耗。</p>
+<p>② 在上例中，当将子类的<code>prototype</code>指向父类的<code>prototype</code>时调用并没有传任何参数，这是因为我们这时只想关联<code>prototype</code>，并不关心他到底需要什么参数。在上例中并不会有什么大问题，但是这种操作存在隐患，有时会给我们带来意想不到的副作用。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params">arr, ...rest</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.arr = [...arr, ...rest];</span><br><span class="line">&#125;</span><br><span class="line">Foo.prototype.print = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="keyword">this</span>.arr);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Bar.prototype = <span class="keyword">new</span> Foo();</span><br><span class="line"><span class="comment">// Uncaught TypeError: ref is not iterable</span></span><br></pre></td></tr></table></figure>
+<p>当然这是我们假象的一个例子，本身是由于代码不够健壮造成的。你可以改造Foo的构造函数，检查参数或者配置默认参数。这里想表达的是，其实我们这里根本不需要执行<code>Foo</code>构造函数，因为我们只关心其<code>prototype</code></p>
+<h4 id="直接指向父类prototype">直接指向父类prototype</h4><p>该方法没有任何使用价值，只是为了说明问题。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">Car.prototype = Vehicle.prototype;</span><br><span class="line">Car.prototype.constructor = Car;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vehicle = <span class="keyword">new</span> Vehicle(<span class="number">1</span>);</span><br><span class="line">consle.log(vehicle.constructor);</span><br><span class="line"><span class="comment">// Car</span></span><br></pre></td></tr></table></figure>
+<p>该方法直接将子类的<code>prototype</code>指向父类的<code>prototype</code>，避免了实例化父类对象，节省了内存。但是子类对<code>prototype</code>的任何修改都会直接影响到父类以及其他子类，因为<code>prototype</code>是同一个对象引用。</p>
+<h4 id="利用空对象继承">利用空对象继承</h4><p>该方法是在上面的基础上演化而来的。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">F.prototype = Vehicle.prototype;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">engines, wheels</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car.prototype = <span class="keyword">new</span> F();</span><br><span class="line">Car.prototype.constructor = Car;</span><br></pre></td></tr></table></figure>
+<p>由于直接将子类的<code>prototype</code>指向父类的<code>prototype</code>会存在上述问题，而且前面提到多次调用父类构造方法以及空着调用父类构造函数可能会导致副作用。该方法利用一个空对象作为介质，实例化<code>F</code>几乎不占内存，而且修改子类的<code>prototype</code>也不会影响到父类的<code>prototype</code>。</p>
+<p>通过同样的思路(指向子类的<code>prototype</code>到一个空对象)，该方法还可以通过下面一种实现：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">engines, wheels</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype);</span><br><span class="line">Car.prototype.constructor = Car;</span><br></pre></td></tr></table></figure>
+<p><code>Object.create(o: Object)</code>是ES5中的一个方法，接收一个对象<code>o</code>，返回一个空对象，该返回对象的<code>prototype</code>会指向传入的参数<code>o</code>。所以该实现和上面的构造临时<code>F</code>是等价的，而且由于该方法省去了空类<code>F</code>的创建，所以会更加推荐使用此方法。</p>
+<h4 id="拷贝继承">拷贝继承</h4><p>以上的方法都是通过子类关联父类的原型链的方式继承。其实我们也可以直接从父类的原型链上面将这些不变的属性/方法拷贝到子类的原型链上面，这样不也能实现子类调用父类的方法了吗？</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">engines, wheels</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> vp = Vehicle.prototype;</span><br><span class="line"><span class="keyword">var</span> cp = Car.prototype;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i <span class="keyword">in</span> vp) &#123;</span><br><span class="line">  cp[i] = vp[i];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这里需要注意的是，由于<code>for in</code>还会遍历继承下来的属性，但是并不会遍历<code>enumerable</code>为<code>false</code>的属性。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Foo</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Foo.prototype.foo = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'foo'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Bar</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Bar.prototype = <span class="keyword">new</span> Foo();</span><br><span class="line">Bar.prototype.bar = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'bar'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(Bar.prototype, <span class="string">'bla'</span>, &#123;</span><br><span class="line">  enumerable: <span class="literal">false</span>,</span><br><span class="line">  value: () =&gt; &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'bla'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Baz</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> Bar.prototype) &#123;</span><br><span class="line">  Baz.prototype[i] = Bar.prototype[i];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> baz = <span class="keyword">new</span> Baz();</span><br><span class="line"></span><br><span class="line">baz.bar();</span><br><span class="line"><span class="comment">// bar</span></span><br><span class="line">baz.foo();</span><br><span class="line"><span class="comment">// baz</span></span><br><span class="line">baz.bla;</span><br><span class="line"><span class="comment">// undefined</span></span><br></pre></td></tr></table></figure>
+<h2 id="并不存在的_类">并不存在的 类</h2><p>当在真正弄清楚在Javascript中原型链<code>prototype</code>的工作方式之后，你会发现这和传统的面向对象比如Java存在很大区别的。</p>
+<p>在Javascript中，所谓的<em>类的继承</em>无非是实例通过 <em>[[Prototype]]</em> 一层一层向上查找实现的。与其说是<em>继承</em>，不如说是<strong>委托/代理</strong>，子类实例想要使用父类定义的方法，不就是将该方法委托给父类的<code>prototype</code>吗？一旦父类在<code>prototype</code>中定义的方法发生改变，子类再调用该方法就是改变后的方法，因为委托的对象发生了改变。</p>
+<h3 id="“类的多态”">“类的多态”</h3><p>在面向对象编程里面，多态是最重要的概念之一。多态的定义是接口的多种不同实现，在调用时父类类型的引用指向子类对象。</p>
+<p>由于Javascript中并不存在类，更不存在接口。然而人们已经接受了面向对象的思维去理解原型链，那么来看下是怎么模拟多态的。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Car</span>(<span class="params">engines, wheels</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">  <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">&#125;</span><br><span class="line">Car.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype);</span><br><span class="line">Car.prototype.ignition = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Vehicle.prototype.ignition.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Rolling on '</span> + <span class="keyword">this</span>.wheels + <span class="string">' wheels.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">SpeedBoad</span>(<span class="params">engines</span>) </span>&#123;</span><br><span class="line">  Vehicle.call(<span class="keyword">this</span>, engines);</span><br><span class="line">&#125;</span><br><span class="line">SpeedBoad.prototype = <span class="built_in">Object</span>.create(Vehicle.prototype);</span><br><span class="line">SpeedBoad.prototype.ignition = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  Vehicle.prototype.ignition.call(<span class="keyword">this</span>);</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Speeding through the water.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> car = <span class="keyword">new</span> Car(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line">car.ignition();</span><br><span class="line"><span class="comment">// Turning on 2 engines!</span></span><br><span class="line"><span class="comment">// Rolling on 4 wheels.</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> speedBoad = <span class="keyword">new</span> SpeedBoad(<span class="number">2</span>);</span><br><span class="line">speedBoad.ignition();</span><br><span class="line"><span class="comment">// Turning on 2 engines!</span></span><br><span class="line"><span class="comment">// Speeding through the water.</span></span><br></pre></td></tr></table></figure>
+<p>上面代码通过在子类的<code>prototype</code>上定义与父类同名的<code>ignition</code>方法，达到遮蔽父类方法的目的，实现了相对多态的效果。</p>
+<h3 id="行为委托">行为委托</h3><p>上面提到在类的世界里，通过定义一个同名的方法达到相对多态的目的。但是如果我们面对现实，不用类的思维去思考问题，在我们面前的紧紧是一个个普通的对象<code>object</code>而已。这时定义同名方法往往使得代码难以理解，我们更倾向于定义另外一个方法，在这个方法里面去委托别的方法来完成相关联的逻辑。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> Widget = &#123;</span><br><span class="line">  init: <span class="function"><span class="keyword">function</span>(<span class="params">width, height</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">this</span>.width = width;</span><br><span class="line">    <span class="keyword">this</span>.height = height;</span><br><span class="line">    <span class="keyword">this</span>.$elem = <span class="literal">null</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">  insert: <span class="function"><span class="keyword">function</span>(<span class="params">$context</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.$elem) &#123;</span><br><span class="line">      <span class="keyword">this</span>.$elem.css(&#123;</span><br><span class="line">        width: width,</span><br><span class="line">        height: height</span><br><span class="line">      &#125;).appendTo($context);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> Button = <span class="built_in">Object</span>.create(Widget);</span><br><span class="line"></span><br><span class="line">Button.setup = <span class="function"><span class="keyword">function</span>(<span class="params">width, height, label</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.init(width, height);</span><br><span class="line">  <span class="keyword">this</span>.label = label || <span class="string">'Button'</span>;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">this</span>.$elem = $(<span class="string">'&lt;button /&gt;'</span>).text(<span class="keyword">this</span>.label);</span><br><span class="line">&#125;</span><br><span class="line">Button.build = <span class="function"><span class="keyword">function</span>(<span class="params">$context</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">this</span>.insert($context);</span><br><span class="line">  <span class="keyword">this</span>.$elem.click(<span class="keyword">this</span>.onClick.bind(<span class="keyword">this</span>));</span><br><span class="line">&#125;</span><br><span class="line">Button.onClick = <span class="function"><span class="keyword">function</span>(<span class="params">evt</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'Button '</span> + <span class="keyword">this</span>.label + <span class="string">' clicked.'</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> $body = $(<span class="built_in">document</span>.body);</span><br><span class="line"><span class="keyword">var</span> btn = <span class="built_in">Object</span>.create(Button);</span><br><span class="line"></span><br><span class="line">btn.setup(<span class="number">100</span>, <span class="number">20</span>, <span class="string">'Hello'</span>);</span><br><span class="line">btn.build($body);</span><br></pre></td></tr></table></figure>
+<p>上面代码中，完全通过纯对象的思维去定义了基础组件<code>Widget</code>与一般组件<code>Button</code>的关系。在<code>Button</code>的<code>setup</code>方法中委托<code>Widget.init</code>方法，并添加了自己特有的逻辑，从而达到了代码抽象与重用的目的。</p>
+<h2 id="class_in_ES6">class in ES6</h2><p>ES6提供了<code>class</code>的新语法，不过只是一个语法糖而已，本质还是前面提到的通过原型链<code>prototype</code>的实现。下面我们来看一下使用ES6是如何定义类的。</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(engines) &#123;</span><br><span class="line">    <span class="keyword">this</span>.engines = engines;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  ignition() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Turning on '</span> + <span class="keyword">this</span>.engines + <span class="string">' engines!'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(engines, wheels) &#123;</span><br><span class="line">    <span class="keyword">super</span>(engines);</span><br><span class="line">    <span class="keyword">this</span>.wheels = wheels;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  ignition() &#123;</span><br><span class="line">    <span class="keyword">super</span>.ignition();</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Rolling on '</span> + <span class="keyword">this</span>.wheels + <span class="string">' wheels.'</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> car = <span class="keyword">new</span> Car(<span class="number">2</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line">car.ignition();</span><br><span class="line"><span class="comment">// Turning on 2 engines!</span></span><br><span class="line"><span class="comment">// Rolling on 4 wheels.</span></span><br></pre></td></tr></table></figure>
+<p>我们可以看到通过ES6的方式去定义一个类以及继承的关系变得清爽了很多，其实它只是把<code>prototype</code>隐藏了起来。当通过<code>extends</code>继承父类时，可以通过<code>super.ignition()</code>调用父类中定义的方法，其实它等于<code>Vehicle.prototype.ignition.call(this)</code>。</p>
+<h3 id="ES6_class_那些小事">ES6 class 那些小事</h3><ol>
+<li><p><strong>定义class的成员变量和静态属性</strong></p>
+<p> 到目前为止，官方版本要定义class的成员变量只能通过在<code>constructor</code>中通过<code>this.props = props</code>的方式来达到。那如何定义class的静态属性呢？就上面例子，可以通过<code>Vehicle.version = 1</code>这种方式来定义。</p>
+<p> 其实可以有更清晰友好的方式，但是目前没在ES6的正式版本中。如果使用babel，加入 <em>stage-2</em> 即可(stage提案的执行阶段)。然后就可以这样玩了。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  timeCreated = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">  <span class="keyword">static</span> version = <span class="string">'1.0'</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p><strong>理清关系</strong></p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">B.__proto__ === A;</span><br><span class="line"><span class="comment">// true</span></span><br><span class="line">B.prototype.__proto__ === A.prototype;</span><br><span class="line"><span class="comment">// true</span></span><br></pre></td></tr></table></figure>
+<p> 由于每个对象都有 <em>[Prototype]</em> 属性，指向构造该对象的构造函数的的<code>prototype</code>属性。class的本质是一个普通<code>function</code>，同时也是一个普通对象。当通过<code>extends</code>实现继承时，而同时存在<code>prototype</code>和 <em>[Prototype]</em> 两条继承链。</p>
+<p> (1) 子类的 <em>[Prototype]</em> 属性，表示<strong>构造函数</strong>的继承，总是指向父类。</p>
+<p> (2) 子类<code>prototype</code>属性的 <em>[Prototype]</em> 属性，表示<strong>方法</strong>的继承，总是指向父类的<code>prototype</code>属性。</p>
+</li>
+<li><p><strong>super问题</strong></p>
+<p> 我们上面提到了当调用<code>super.xxx</code>时，其实内部是会从父类的<code>prototype</code>上查找。所以任何不存在<code>protoype</code>上的属性/方法是无法通过<code>super</code>得到的。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(engines) &#123;</span><br><span class="line">      <span class="keyword">this</span>.engnes = engines;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Car</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">  <span class="keyword">constructor</span>(engines) &#123;</span><br><span class="line">    <span class="keyword">super</span>(engines);</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  print() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'super: '</span> + <span class="keyword">super</span>.engines);</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'self: '</span> + <span class="keyword">this</span>.engines);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> car = <span class="keyword">new</span> Car(<span class="number">2</span>);</span><br><span class="line">car.print();</span><br><span class="line"><span class="comment">// super: undefined</span></span><br><span class="line"><span class="comment">// self: 2</span></span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<ol>
+<li><p><strong>访问权限</strong></p>
+<p> ES6并没有提供对于class的访问权限控制，因此也不存在私有变量/方法。但是如果你一定想要，也可以达到类似的效果。</p>
+ <figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="keyword">const</span> _log = <span class="built_in">Symbol</span>();</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="keyword">constructor</span>(engines) &#123;</span><br><span class="line">      <span class="keyword">this</span>.engnes = engines;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    [_log]() &#123;</span><br><span class="line">      <span class="keyword">const</span> now = <span class="keyword">new</span> <span class="built_in">Date</span>();</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">`[<span class="subst">$&#123;now&#125;</span>]: logging`</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    ignition() &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">'Turning on '</span> + <span class="keyword">this</span>.engines + <span class="string">' engines!'</span>);</span><br><span class="line">    <span class="keyword">this</span>[_log]();</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> Vechicle;</span><br></pre></td></tr></table></figure>
+<p> 上面的示例中利用ES的<code>Symbol</code>每次运行得到的都是不一样的值的特性，将需要私有的属性封装在模块内部，然后再通过模块的<code>export</code>将该class暴露出去。</p>
+</li>
+</ol>
+
+      
+    </div>
+    
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/13/ECMAScript-2017-Preview/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">ECMAScript-2017-Preview</div>
+      <strong class="article-nav-caption">></strong>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<div class="share_jia">
+	<!-- JiaThis Button BEGIN -->
+	<div class="jiathis_style">
+		<span class="jiathis_txt">Share to: &nbsp; </span>
+		<a class="jiathis_button_facebook"></a> 
+    <a class="jiathis_button_twitter"></a>
+    <a class="jiathis_button_plus"></a> 
+    <a class="jiathis_button_tsina"></a>
+		<a class="jiathis_button_cqq"></a>
+		<a class="jiathis_button_douban"></a>
+		<a class="jiathis_button_weixin"></a>
+		<a class="jiathis_button_tumblr"></a>
+    <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jtico jtico_jiathis" target="_blank"></a>
+	</div>
+	<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js?uid=1405949716054953" charset="utf-8"></script>
+	<!-- JiaThis Button END -->
+</div>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Javascript-OO" data-title="Object Oriented Javascript" data-url="http://yoursite.com/2017/03/12/Javascript-OO/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+</div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2018 Warner Hooh
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+
+
+<script>
+	var yiliaConfig = {
+		fancybox: true,
+		mathjax: true,
+		animate: true,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false
+	}
+</script>
+<script src="http://7.url.cn/edu/jslib/comb/require-2.1.6,jquery-1.9.1.min.js"></script>
+<script src="/js/main.js"></script>
+
+
+
+
+
+
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+    tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    }
+});
+
+MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';                 
+    }       
+});
+</script>
+
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+
+
+  </div>
+</body>
+</html>
