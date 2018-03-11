@@ -16,6 +16,7 @@ Array.prototype.includes（value[, index]）： boolean
 ```
 
 Why `includes`, we have `indexOf` already?
+<!-- more -->
 
 ``` javascript
 > [NaN].indexOf(NaN);

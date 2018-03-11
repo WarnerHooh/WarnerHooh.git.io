@@ -1,5 +1,5 @@
 title: Object Oriented Javascript
-date: 2016-03-09 22:07:22
+date: 2017-03-012 01:40:22
 tags: [Javascript, Object Oriented, inheritance, extend]
 category: Javascript
 ---
@@ -26,6 +26,7 @@ vehicle.ignition();
 // Turning on 2 engines!
 ```
 当使用`new`操作符调用一个函数(和函数名无关，用作类时习惯首字母大写)时，会使用该函数构造一个对象，大概发生了以下几件事：
+<!-- more -->
 
 - 所以在`Vehicle`函数中，创建一个空对象
 - 将该对象绑定到函数调用的`this`
@@ -70,7 +71,7 @@ vehicle.ignition();
 	```
 
 有图有真相
-![alt prototype](./images/javascript-prototype.jpg)
+![alt prototype](https://github.com/WarnerHooh/WarnerHooh.github.io/blob/hexo/source/_posts/images/javascript-prototype.jpg?raw=true)
 
 ### 如何实现类的继承
 实现类的继承方法很多，大概列举以下几种
